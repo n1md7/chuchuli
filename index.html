@@ -11,14 +11,16 @@
 </head>
 <body>
   <button id='random' class="start btn btn-primary "> start</button>
-  <div name="numbergenerated" id="randomnumber"></div> 
   <script type="text/javascript">
     $('#random').click(function(){
-      var randomnumber=3;
-      $('#numbergenerated').text(randomnumber);
+      var randomnumber=Math.floor(Math.random() * 6) + 1  ;
+      console.log(randomnumber);
+      $('#randomnumber').text(randomnumber);
     })
 
   </script>
+    <div name="numbergenerated" id="randomnumber"></div> 
+
   <div class="square">
     <div class="column">
       <div id="s5" class="block"></div>
