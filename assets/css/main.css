@@ -179,6 +179,9 @@ font-size: 1vh;
 	margin-top: 40vw;
 	width:8vw;
 	height: 8vw;
+		background-size: contain;
+	    background-repeat: no-repeat;
+    background-position: center; 
 }
 .row_bottom{
 			position: absolute;
