@@ -132,9 +132,6 @@ function Animation(targetDiv) {
   }
 
 
-
-  console.log(this.player)
-
   this.update = function() {
     if (this.active.walk) {
       if (this.counter.walk < this.frames.walk) {
