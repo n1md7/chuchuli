@@ -183,6 +183,8 @@ font-size: 1vh;
 	background-position: -3vw -1vw;
 	background-size: 15vw auto;
 	    background-repeat: no-repeat;
+	    transition:all 1s;
+	    
 }
 .row_bottom{
 			position: absolute;
