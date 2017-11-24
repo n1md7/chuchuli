@@ -21,7 +21,7 @@ function Create_object(name) {
     this.treasure.bread = 10
     this.treasure.meat = 10
     this.treasure.gold = 10
-    this.treasure.warnior = 10
+    this.treasure.warrior = 10
 
     this.coefficient.bread = 1
     this.coefficient.peasant = 1
@@ -34,3 +34,23 @@ function Create_object(name) {
 
   }
 }
+
+
+
+function Animation() {
+  jQuery('</div>',{
+    id: 'player'
+  }).appendTo('body')
+
+  this.element = $('#player').css({
+    'width':'100px',
+    'height':'100px',
+    'position':'absolute',
+    'left':'0',
+    'top':'0'
+  })
+
+}
+
+
+new Animation()
