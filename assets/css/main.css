@@ -127,6 +127,14 @@
 	background: #a15e30;
 
 }
+#player{
+	position: absolute;
+	background: black;
+	margin-left: 40vw;
+	margin-top: 40vw;
+	width:8vw;
+	height: 8vw;
+}
 .row_bottom{
 			position: absolute;
 
