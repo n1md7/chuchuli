@@ -1,0 +1,10 @@
+var weat=0;
+var chicken=0;
+var meat=0;
+var peasant=0;
+var warrior=0;
+var gold=0;
+var weatCoefficient=0;
+var meatCoefficient=0;
+var peasantCoefficient=0;
+var chickenCoefficient=0;
