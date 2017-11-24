@@ -223,6 +223,18 @@ width:102vw;
 	width: 54vw;
 	margin-left: -2vw;
 	margin-top: 2vh;
+
+}
+#randomnumber{
+	position: absolute;
+	margin-top: 10vh;
+	margin-left:70vw;
+	border: 2px solid brown;
+	border-radius: 1vh;
+	height: 8vh;
+	width: 8vh;
+	font-size: 5vh;
+	text-align: center;
 }
 .war{
 	height: 10vh;
