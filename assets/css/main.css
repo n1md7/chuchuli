@@ -140,6 +140,8 @@
 	color:yellow;
 background: brown;
 padding-left: 3vw;
+
+font-size: 1vh;
 }
 #wheat{
 	background-image: url("../../images/wheat.png");
