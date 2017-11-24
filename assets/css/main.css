@@ -159,6 +159,18 @@ padding-left: 3vw;
 	    background-repeat: no-repeat;
     background-position: center; 
 }
+#peasant{
+	background-image: url("../../images/peasant.png");
+	background-size: contain;
+	    background-repeat: no-repeat;
+    background-position: center; 
+}
+#warrior{
+	background-image: url("../../images/warrior.png");
+	background-size: contain;
+	    background-repeat: no-repeat;
+    background-position: center; 
+}
 #player{
 	position: absolute;
 	background: brown;
