@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+  <script src="./assets/js/jquery.js" type="text/javascript"></script>
+  <script src="./assets/js/bootstrap.js" type="text/javascript"></script>
+</head>
+<body>
+  <button id='random' class="start btn btn-primary "> start</button>
+  <div name="numbergenerated" id="randomnumber"></div> 
+  <script type="text/javascript">
+    $('#random').click(function(){
+      var randomnumber=3;
+      $('#numbergenerated').text(randomnumber);
+    })
+
+  </script>
+  <div class="square">
+    <div class="column">
+      <div id="s5" class="block"></div>
+      <div id="s9" class="block"></div>
+      <div id="s8" class="block"></div>
+      <div id="s7" class="block"></div>
+      <div id="s6" class="block"></div>
+      <div id="s10" class="block"></div>
+    </div>
+
+    <div class="row_top">
+      <div id="s11" class="block"></div>
+      <div id="s12" class="block"></div>
+      <div id="s13" class="block"></div>
+      <div id="s14" class="block"></div>
+    </div>
+    <div class="centralalert"></div>
+    <div class="row_bottom">
+      <div id="s4" class="block"></div>
+      <div id="s3" class="block"></div>
+      <div id="s2" class="block"></div>
+      <div id="s1" class="block"></div>
+    </div>
+    <div class="column_right">
+
+      <div id="s0" class="block"></div>
+      <div id="s16" class="block"></div>
+      <div id="s17" class="block"></div>
+      <div id="s18" class="block"></div>
+      <div id="s19" class="block"></div>
+      <div id="s15" class="block"></div>
+    </div>
+    <div id="player" class="player"></div>
+
+  </div>
+<div class="info">
+  <div class="resource" id="wheat">0</div>
+    <div class="resource" id="chicken">0</div>
+        <div class="resource" id="pork">0</div>
+            <div class="resource" id="peasant">0</div>
+                <div class="resource" id="warrior">0</div>
+
+
+
+
+</div>
+<div class="bottom">
+  <div class="marketplace"></div><div class="war"></div>
+</div>
+
+  <script type="text/javascript" src="./assets/js/model.js"></script>
+  <script type="text/javascript" src="./assets/js/animate.js"></script>
+</body>
+</html>
