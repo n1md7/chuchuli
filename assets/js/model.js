@@ -38,17 +38,21 @@ function Create_object(name) {
 
 
 function Animation() {
-  jQuery('</div>',{
-    id: 'player'
-  }).appendTo('body')
+  // jQuery('</div>',{
+  //   id: 'player'
+  // }).appendTo('body')
+  //
+  // this.element = $('#player').css({
+  //   'width':'100px',
+  //   'height':'100px',
+  //   'position':'absolute',
+  //   'left':'0',
+  //   'top':'0'
+  // })
 
-  this.element = $('#player').css({
-    'width':'100px',
-    'height':'100px',
-    'position':'absolute',
-    'left':'0',
-    'top':'0'
-  })
+  this.images = {
+    
+  }
 
 }
 
