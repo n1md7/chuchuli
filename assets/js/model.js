@@ -49,7 +49,7 @@ function Create_object(name) {
 
 
 
-function Animation() {
+function Animation(targetDiv) {
   // jQuery('</div>',{
   //   id: 'player'
   // }).appendTo('body')
@@ -114,9 +114,52 @@ function Animation() {
     this.player.idle.left.push(left)
   }, this)
 
+  this.frames = {
+    walk: this.player.walk.down.length - 1,
+    idle: this.player.idle.down.length - 1
+  }
+
+  this.counter = {
+    walk: 0,
+    idle: 0
+  }
+
+  this.active = {
+    walk: true,
+    idle: false
+  }
+
+
   console.log(this.player)
+
+  this.update = function() {
+    if (this.active.walk) {
+      if (this.counter.walk < this.frames.walk) {
+        this.counter.walk++
+      } else {
+        this.counter.walk = 0
+      }
+    } else {
+      if (this.counter.idle < this.frames.idle) {
+        this.counter.idle++
+      } else {
+        this.counter.idle = 0
+      }
+    }
+    // console.log(this.counter.idle)
+    this.active.walk ?
+      targetDiv.style.backgroundImage = 'url('+this.player.walk.up[this.counter.walk].src+')' :
+      targetDiv.style.backgroundImage = 'url('+this.player.idle.up[this.counter.idle].src+')'
+  }
+
+
 
 }
 
 
-new Animation()
+
+
+var animate = new Animation(document.querySelector('#player'))
+var loop = setInterval(function() {
+  animate.update()
+}, 33)
