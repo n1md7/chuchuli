@@ -207,3 +207,32 @@ margin-top: 40vw;
 		width:32vw;
 	height:32vw;
 }
+
+.bottom{
+position: absolute;
+	margin-top: 90vh;
+height: 12vh;
+width:102vw;
+}
+.marketplace{
+	height: 10vh;
+	background-color: brown;
+	border-radius: 2vh;
+		border: 1px solid black;
+
+	width: 54vw;
+	margin-left: -2vw;
+	margin-top: 2vh;
+}
+.war{
+	height: 10vh;
+
+	background-color: brown;
+	border-radius: 2vh;
+	border: 1px solid black;
+	width: 54vw;
+	margin-left: 52vw;
+	position: absolute;
+	margin-top:-10vh;
+
+}
