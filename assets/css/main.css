@@ -107,12 +107,13 @@
 }
 #s13{
 	margin-left: 16vw;
-	background: #0011de;
+	background: rgba(0, 0, 255,0.7);
 
 }
 #s14{
+
 	margin-left: 24vw;
-	background: #11de00;
+	background: rgba(255, 0,0,0.7);
 }
 .start{
 
@@ -179,9 +180,9 @@ font-size: 1vh;
 	margin-top: 40vw;
 	width:8vw;
 	height: 8vw;
-		background-size: contain;
+	background-position: -3vw -1vw;
+	background-size: 15vw auto;
 	    background-repeat: no-repeat;
-    background-position: center; 
 }
 .row_bottom{
 			position: absolute;
