@@ -50,18 +50,6 @@ function Create_object(name) {
 
 
 function Animation(targetDiv) {
-  // jQuery('</div>',{
-  //   id: 'player'
-  // }).appendTo('body')
-  //
-  // this.element = $('#player').css({
-  //   'width':'100px',
-  //   'height':'100px',
-  //   'position':'absolute',
-  //   'left':'0',
-  //   'top':'0'
-  // })
-
   this.player = {
     walk: {
       down: new Array(),
@@ -125,9 +113,24 @@ function Animation(targetDiv) {
   }
 
   this.active = {
-    walk: true,
-    idle: false
+    walk: false,
+    idle: true
   }
+
+  this.going = {
+    up: false,
+    down: false,
+    right: false,
+    left: true
+  }
+
+  this.goingReset = function(e) {
+    this.going.right = e == "right" ? true : false
+    this.going.left = e == "left" ? true : false
+    this.going.up = e == "up" ? true : false
+    this.going.down = e == "down" ? true : false
+  }
+
 
 
   console.log(this.player)
@@ -146,10 +149,41 @@ function Animation(targetDiv) {
         this.counter.idle = 0
       }
     }
-    // console.log(this.counter.idle)
-    this.active.walk ?
-      targetDiv.style.backgroundImage = 'url('+this.player.walk.up[this.counter.walk].src+')' :
-      targetDiv.style.backgroundImage = 'url('+this.player.idle.up[this.counter.idle].src+')'
+
+
+    if (this.active.walk) {
+      switch (true) {
+        case this.going.up:
+          targetDiv.style.backgroundImage = 'url(' + this.player.walk.up[this.counter.walk].src + ')'
+          break
+        case this.going.down:
+          targetDiv.style.backgroundImage = 'url(' + this.player.walk.down[this.counter.walk].src + ')'
+          break
+        case this.going.left:
+          targetDiv.style.backgroundImage = 'url(' + this.player.walk.left[this.counter.walk].src + ')'
+          break
+        case this.going.right:
+          targetDiv.style.backgroundImage = 'url(' + this.player.walk.right[this.counter.walk].src + ')'
+          break
+      }
+    } else {
+      switch (true) {
+        case this.going.up:
+          targetDiv.style.backgroundImage = 'url(' + this.player.idle.up[this.counter.idle].src + ')'
+          break
+        case this.going.down:
+          targetDiv.style.backgroundImage = 'url(' + this.player.idle.down[this.counter.idle].src + ')'
+          break
+        case this.going.left:
+          targetDiv.style.backgroundImage = 'url(' + this.player.idle.left[this.counter.idle].src + ')'
+          break
+        case this.going.right:
+          targetDiv.style.backgroundImage = 'url(' + this.player.idle.right[this.counter.idle].src + ')'
+          break
+      }
+    }
+
+
   }
 
 
@@ -162,4 +196,4 @@ function Animation(targetDiv) {
 var animate = new Animation(document.querySelector('#player'))
 var loop = setInterval(function() {
   animate.update()
-}, 33)
+}, 40)
