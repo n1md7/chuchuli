@@ -298,20 +298,25 @@ for(var i = 0;len = document.getElementsByClassName('block').length, i < len; i 
   var myBlocks = new Block().blocks
   for(var j = 0; j < myBlocks.length; j++){
 
-    if(myBlocks[j].index instanceof Array){
-      myBlocks[j].index.forEach(function(e){
-        // console.log(myBlocks[j].index)
-        if(e == j){
-          document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
-        }
-      })
-    }else{
-      if(myBlocks[j].index == j){
-        console.log(e)
+    //if(myBlocks[j].index instanceof Array){
+     //myBlocks[j].index.forEach(function(e){
+        // console.log(myBlocks.index)
+                
+        //if(e == j){
+                //  console.log(e)
         
         console.log(j)
-        document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
-      }
-    }
-  }
+          document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
+      //  }
+    //  })
+   // }else{
+   //   if(myBlocks[j].index == j){
+     //   console.log(e)
+       // 
+       // console.log(j)
+       // document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
+      //}
+   // }
+ // }
+}
 }

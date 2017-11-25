@@ -8,10 +8,17 @@ function Block() {
     }, {
       name: 'Bad Neighbour',
       affect: 8,
-      index: [2, 14],
+      index: 2, 
       image: '',
       description: 'Neighbour is plotting against you.'
-    },
+    }, {
+      name: 'Bad Neighbour',
+      affect: 8,
+      index: 14, 
+      image: '',
+      description: 'Neighbour is plotting against you.'
+    }
+    ,
     {
       name: 'War',
       affect: 23,
@@ -28,7 +35,14 @@ function Block() {
     }, {
       name: 'Burn the witch',
       affect: 8,
-      index: [1, 10],
+      index: 1,
+      image: '',
+      description: 'Unusual things happen to your county, you suspect there is a witch in a village'
+    },
+     {
+      name: 'Burn the witch',
+      affect: 8,
+      index:  10,
       image: '',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village'
     },
@@ -49,10 +63,17 @@ function Block() {
     }, {
       name: 'Revenge over Neighbour',
       affect: 3,
-      index: [12, 17],
+      index: 12,
       image: '',
       description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
-    },
+    }, {
+      name: 'Revenge over Neighbour',
+      affect: 3,
+      index: 17,
+      image: '',
+      description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
+    }
+    ,
     {
       name: 'more peasants in village',
       affect: 23,
@@ -91,7 +112,15 @@ function Block() {
     {
       name: 'great harvest',
       affect: 20,
-      index: [19, 16],
+      index: 19,
+      image: '',
+      description: 'such a great harvest has not been seen in decades.'
+
+    },
+    {
+      name: 'great harvest',
+      affect: 20,
+      index: 16,
       image: '',
       description: 'such a great harvest has not been seen in decades.'
 

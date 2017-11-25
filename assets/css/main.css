@@ -6,113 +6,113 @@
   top: 0;
   bottom: 0;
   background: #000;
-  width: 48vw;
-  height: 48vw;
+  width: 48vh;
+  height: 48vh;
 }
 
 .column {
   position: absolute;
   background: #beeeef;
-  width: 8vw;
-  height: 48vw;
+  width: 8vh;
+  height: 48vh;
 }
 
 .row_top {
   position: absolute;
   background: #bf00df;
-  margin-left: 8vw;
-  width: 32vw;
-  height: 8vw;
+  margin-left: 8vh;
+  width: 32vh;
+  height: 8vh;
 }
 
 .block {
   position: absolute;
-  width: 8vw;
-  height: 8vw;
+  width: 8vh;
+  height: 8vh;
 }
 
 #s9 {
-  margin-top: 8vw;
+  margin-top: 8vh;
   background: rgba(255,0,0,0.3);
 }
 
 #s8 {
-  margin-top: 16vw;
+  margin-top: 16vh;
 	background: rgba(255,0,0,0.7);
 }
 
 #s7 {
-  margin-top: 24vw;
+  margin-top: 24vh;
   background: rgba(255,0,0,0.5);
 }
 
 #s6 {
-  margin-top: 32vw;
+  margin-top: 32vh;
   background: rgba(100,255,0,0.3);
 }
 
 #s5 {
-  margin-top: 40vw;
+  margin-top: 40vh;
 	background: rgba(78,255,0,0.5);
 }
 
 #s16 {
-  margin-top: 8vw;
+  margin-top: 8vh;
 	background: rgba(170,155,0,0.5);
 }
 
 #s17 {
-  margin-top: 16vw;
+  margin-top: 16vh;
 	background: rgba(145,155,0,0.7);
 }
 
 #s18 {
-  margin-top: 24vw;
+  margin-top: 24vh;
   background: rgba(0,0,255,0.5);
 }
 
 #s19 {
-  margin-top: 32vw;
+  margin-top: 32vh;
 	background: rgba(0,0,255,0.3);
 }
 
 #s0 {
-  margin-top: 40vw;
+  margin-top: 40vh;
 	background: rgba(0,0,25,0.8);
 }
 
 #s3 {
-  margin-left: 8vw;
+  margin-left: 8vh;
 	background: rgba(100,0,155,0.9);
 }
 
 #s2 {
-  margin-left: 16vw;
+  margin-left: 16vh;
   background: #0011de;
 }
 
 #s1 {
-  margin-left: 24vw;
+  margin-left: 24vh;
   background: #11de00;
 }
 
 #s4 {
-  margin-left: 0vw;
+  margin-left: 0vh;
   background: #a15e30;
 }
 
 #s12 {
-  margin-left: 8vw;
+  margin-left: 8vh;
   background: #de0011;
 }
 
 #s13 {
-  margin-left: 16vw;
+  margin-left: 16vh;
   background: rgba(0, 0, 255, 0.7);
 }
 
 #s14 {
-  margin-left: 24vw;
+  margin-left: 24vh;
   background: rgba(255, 0, 0, 0.7);
 }
 
@@ -122,7 +122,7 @@
 }
 
 #s11 {
-  margin-left: 0vw;
+  margin-left: 0vh;
   background: #a15e30;
 }
 
@@ -180,12 +180,12 @@
 
 #player {
   position: absolute;
-  margin-left: 40vw;
-  margin-top: 40vw;
-  width: 8vw;
-  height: 8vw;
-  background-position: -3vw -1vw;
-  background-size: 15vw auto;
+  margin-left: 40vh;
+  margin-top: 40vh;
+  width: 8vh;
+  height: 8vh;
+  background-position: -3vh -1vh;
+  background-size: 15vh auto;
   background-repeat: no-repeat;
   transition: all 1s;
 	z-index: 6;
@@ -194,18 +194,18 @@
 .row_bottom {
   position: absolute;
   background: #0011ef;
-  margin-left: 8vw;
-  margin-top: 40vw;
-  width: 32vw;
-  height: 8vw;
+  margin-left: 8vh;
+  margin-top: 40vh;
+  width: 32vh;
+  height: 8vh;
 }
 
 .column_right {
   position: absolute;
   background: #beeeef;
-  margin-left: 40vw;
-  width: 8vw;
-  height: 48vw;
+  margin-left: 40vh;
+  width: 8vh;
+  height: 48vh;
 }
 
 .square h1 {
@@ -215,10 +215,10 @@
 .centralalert {
   position: absolute;
   background: white;
-  margin-left: 8vw;
-  margin-top: 8vw;
-  width: 32vw;
-  height: 32vw;
+  margin-left: 8vh;
+  margin-top: 8vh;
+  width: 32vh;
+  height: 32vh;
 }
 
 .bottom {
