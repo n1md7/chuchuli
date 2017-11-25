@@ -82,9 +82,8 @@
           <h4 class="modal-title">Market Place</h4>
         </div>
         <div class="modal-body">
-          <!-- <p>Some text in the modal.</p> -->
           <!--  pill tabs start-->
-          <img src="./assets/slots/market.png" class="img-rounded" alt="market" width="100" style="margin:auto;">
+          <img src="./assets/slots/market.png" class="img-rounded" alt="market" width="100">
           <h3>Buy/Sell</h3>
           <ul class="nav nav-tabs">
             <li class="active"><a href="#">Chicken</a></li>
@@ -94,8 +93,7 @@
             <li><a href="#">Warrior</a></li>
           </ul>
           <br>
-          <p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find
-            out how this can be done.</p>
+          <p class="marketOutput"></p>
           <!--  pill tabs end-->
         </div>
         <div class="modal-footer">
@@ -106,7 +104,19 @@
     </div>
   </div>
   <!--  end of modal -->
+  <script type="text/javascript">
+    (function(){
+      var pilllis = document.querySelectorAll('ul.nav-tabs li a')
+      for(var i = 0; i < pilllis.length; i ++){
+        pilllis[i].onclick = function(){
+          $('ul.nav-tabs li').removeClass('active')
+          $(this.parentNode).addClass('active')
+          $('.marketOutput').html(this.innerHTML)
+        }
+      }
+    })()
 
+  </script>
   <script type="text/javascript" src="./assets/js/blocks.js"></script>
   <script type="text/javascript" src="./assets/js/model.js"></script>
 </body>
