@@ -20,7 +20,7 @@ function Block(){
       index: 7,
       image: '',
       description: 'The war has started!!! warriors will fight, and get the riches, but they use lots of food'
-    }
+    },
      {
       name: 'multiplying stock',
       affect: 30,
@@ -39,7 +39,77 @@ function Block(){
       affect: 23,
       index: 3,
       image: '',
-      description: 'you can make a good investment in a caravan in china. However, the risks are not as low as you would like too'
-    }
+      description: 'you can make a good investment in a caravan in china. However, the risks are not as low as you would like them to be'
+    },
+    {
+      name:'Gone to Rome',
+      affect: 20,
+      index: 18,
+      image:'',
+      description:'faith is important in ones life. you have gone to seek the God in Rome'
+
+    },{
+      name: 'Revenge over Neighbour',
+      affect: 3,
+      index: [12,17],
+      image: '',
+      description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
+    },
+    {
+      name: 'more peasants in village',
+      affect: 23,
+      index: 4,
+      image: '',
+      description: 'You can hire villagers cheaper!!!'
+    },
+     {
+      name: 'dying stock',
+      affect: 30,
+      index: 5,
+      image: '',
+      description: 'The stock is dying!!! the prices for stock skyrocketed!!!'
+    },{
+      name: 'Gift from King!!!',
+      affect: 8,
+      index: 0,
+      image: '',
+      description: 'His majesty, The king has decided to gift you money'
+    },
+    {
+      name: 'family matters',
+      affect: 23,
+      index: 9,
+      image: '',
+      description: 'It is a tryuly majestic day!!! your sun has been born. but it will definitely affect your pocket'
+    },
+    {
+      name:'taxes',
+      affect: 20,
+      index: 11,
+      image:'',
+      description:'king expects you to pay your taxes. the amount will definitely affect your relation with him'
+
+    },
+    {
+      name:'great harvest',
+      affect: 20,
+      index: [19, 16],
+      image:'',
+      description:'such a great harvest has not been seen in decades.'
+
+    },
+    {
+      name:'group of mercenaries',
+      affect: 20,
+      index: 13,
+      image:'',
+      description:'group of cheap good mercenaries approach town.'
+
+    },
+    name:'piligrimage',
+    affect: 10,
+    index: 6,
+    image:'',
+    description: 'your peasants go to piligrimage. That is not good.'
   ]
 }
