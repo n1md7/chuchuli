@@ -355,7 +355,9 @@ $('.buy').click(function() {
           }
         var goughtgold=parseInt($("#persale").text())*parseInt($('.sellbuy').val());
         playertreasure.treasure.gold=playertreasure.treasure.gold+goughtgold
-      console.log(playertreasure.treasure.gold);
+      console.log(parseInt($('.sellbuy').val());
+      console.log(parseInt($("#persale").text());
+
         swal({
           position: 'center',
           type: 'success',
