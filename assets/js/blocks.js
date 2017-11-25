@@ -17,8 +17,7 @@ function Block() {
       index: 14, 
       image: '',
       description: 'Neighbour is plotting against you.'
-    }
-    ,
+    },
     {
       name: 'War',
       affect: [0.8,0.8,0.8,0.8,0.9,1,1.6,1,1,1.1],
@@ -39,7 +38,7 @@ function Block() {
       image: '',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village'
     },
-     {
+    {
       name: 'Burn the witch',
       affect: [1,1,1,1,0.8,1,1,1,1.2,1],
       index:  10,
@@ -72,8 +71,7 @@ function Block() {
       index: 17,
       image: '',
       description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
-    }
-    ,
+    },
     {
       name: 'more peasants in village',
       affect: 23,
@@ -115,7 +113,6 @@ function Block() {
       index: 19,
       image: '',
       description: 'such a great harvest has not been seen in decades.'
-
     },
     {
       name: 'great harvest',

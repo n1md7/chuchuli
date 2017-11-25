@@ -248,6 +248,10 @@
   margin-top: 8vh;
   width: 32vh;
   height: 32vh;
+  background: url('../slots/back2.jpg');
+  background-size:  cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .bottom {

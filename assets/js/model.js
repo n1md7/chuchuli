@@ -303,6 +303,6 @@ for (var i = 0; len = document.getElementsByClassName('block').length, i < len; 
     names.forEach(function(element, index) {
       names[index] = element.substring(0, 1).toUpperCase()
     })
+    document.getElementById('s' + myBlocks[i].index).innerHTML = names.join('')
   }
-  document.getElementById('s' + i).innerHTML = names.join('')
 }
