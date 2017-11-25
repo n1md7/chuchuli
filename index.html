@@ -10,6 +10,9 @@
   <script src="./assets/js/bootstrap.js" type="text/javascript"></script>
   <link rel="stylesheet" href="./assets/css/dice3d.css">
   <script type="text/javascript" src="./assets/js/dice3d.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 </head>
 
 <body>
@@ -81,9 +84,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Market Place</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="overflow:auto;">
           <!--  pill tabs start-->
-          <img src="./assets/slots/market.png" class="img-rounded" alt="market" width="100">
+          <p style="text-align:center;">
+            <img align="middle" src="./assets/slots/market.png" class="img-rounded" alt="market" width="200">
+          </p>
           <h3>Buy/Sell</h3>
           <ul class="nav nav-tabs">
             <li class="active"><a href="#">Chicken</a></li>
@@ -93,8 +98,20 @@
             <li><a href="#">Warrior</a></li>
           </ul>
           <br>
-          <p class="marketOutput"></p>
+          <p class="marketOutput">
+            <!-- content here starts  -->
+            <form action="">
+              <div class="input-group marketBuyPill">
+                <span class="input-group-addon" id="marketTargetName">Number of Chicken</span>
+                <input type="number" class="form-control" placeholder="Must be Integer" aria-describedby="marketTargetName">
+              </div>
+            </form>
+            <!-- content here ends  -->
+          </p>
           <!--  pill tabs end-->
+          <hr>
+          <button type="button" class="btn btn-primary btn-xl pull-left buy" name="button">Buy</button>
+          <button type="button" class="btn btn-warning btn-xl pull-right sell" name="button">Sell</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -105,17 +122,41 @@
   </div>
   <!--  end of modal -->
   <script type="text/javascript">
-    (function(){
+    (function() {
       var pilllis = document.querySelectorAll('ul.nav-tabs li a')
-      for(var i = 0; i < pilllis.length; i ++){
-        pilllis[i].onclick = function(){
+      for (var i = 0; i < pilllis.length; i++) {
+        pilllis[i].onclick = function() {
           $('ul.nav-tabs li').removeClass('active')
           $(this.parentNode).addClass('active')
-          $('.marketOutput').html(this.innerHTML)
+          $('#marketTargetName').html('Number of ' + this.innerHTML)
         }
       }
-    })()
 
+      $('.buy').click(function() {
+        swal({
+          position: 'center',
+          type: 'success',
+          title: 'You have a new things yay',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+
+
+      $('.sell').click(function() {
+        swal({
+          position: 'center',
+          type: 'success',
+          title: 'You have successfully sold your product',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+
+
+
+
+    })()
   </script>
   <script type="text/javascript" src="./assets/js/blocks.js"></script>
   <script type="text/javascript" src="./assets/js/model.js"></script>

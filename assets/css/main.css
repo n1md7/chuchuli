@@ -242,6 +242,16 @@
 	z-index: 6;
 }
 
+button[name=button]{
+  width: 30%;
+}
+.marketBuyPill{
+  width: 50%;
+  position: relative;
+  left:0;
+  right:0;
+  margin:auto;
+}
 .row_bottom {
   position: absolute;
   background: #0011ef;
