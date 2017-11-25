@@ -197,13 +197,12 @@ function Animation(targetDiv) {
 
 
 
-function Game(){
-  this.title = [
-    {
+function Game() {
+  this.title = [{
       name: 'Plague',
       affect: 20, //per cent
       index: 15
-    },{
+    }, {
 
     }
 
@@ -212,9 +211,9 @@ function Game(){
 
 
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function() {
 
-},false)
+}, false)
 
 
 
@@ -276,17 +275,18 @@ document.querySelector('#random')
   .addEventListener('click', function() {
     this.setAttribute('disabled', 'true')
     var randomnumber = getRandomInt(1, 6)
-    dice3d(6, randomnumber, function(){
+    dice3d(6, randomnumber, function() {
       walking(randomnumber)
     });
     $('#dice3d-table').css({
-      left:0,
-      top:0,
-      right:0,
-      bottom:0,
-      margin:'auto',
-      width:'50px',
-      heigth:'50px'
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      margin: 'auto',
+      width: '50px',
+      heigth: '50px',
+      transform: "translate(0px,-20px)"
     })
 
 
@@ -294,29 +294,15 @@ document.querySelector('#random')
 
 
 
-for(var i = 0;len = document.getElementsByClassName('block').length, i < len; i ++){
+for (var i = 0; len = document.getElementsByClassName('block').length, i < len; i++) {
   var myBlocks = new Block().blocks
-  for(var j = 0; j < myBlocks.length; j++){
+  for (var j = 0; j < myBlocks.length; j++) {
 
-    //if(myBlocks[j].index instanceof Array){
-     //myBlocks[j].index.forEach(function(e){
-        // console.log(myBlocks.index)
-                
-        //if(e == j){
-                //  console.log(e)
-        
-        console.log(j)
-          document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
-      //  }
-    //  })
-   // }else{
-   //   if(myBlocks[j].index == j){
-     //   console.log(e)
-       // 
-       // console.log(j)
-       // document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
-      //}
-   // }
- // }
-}
+    var name = myBlocks[i].name
+    var names = name.split(' ')
+    names.forEach(function(element, index) {
+      names[index] = element.substring(0, 1).toUpperCase()
+    })
+  }
+  document.getElementById('s' + i).innerHTML = names.join('')
 }
