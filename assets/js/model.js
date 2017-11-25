@@ -4,23 +4,12 @@ function getRandomInt(min, max) {
 }
 
 
-  /* Sorting function*/
-  var SortBy = {
-    index: function(a, b) {
-      if (a.index < b.index) return -1
-      if (a.index > b.index) return 1
-        return 0
-    }
-  }
-
 function fill(e) {
   var a = []
   for (var i = 0; i < e; i++)
     a.push(i < 10 ? '0' + i : i)
   return a
 }
-
-
 
 
 
@@ -38,14 +27,14 @@ function Create_object(name) {
     gold: 10,
     warrior: 10,
     chicken: 10,
-    peasant:10
+    peasant: 10
   }
   this.coefficient = {
     bread: 1.1,
     peasant: 1.2,
     pork: 1.1,
     chicken: 1.1,
-    warrior:1.2
+    warrior: 1.2
   }
   this.default = function() {
     this.treasure.bread = 10
@@ -230,58 +219,33 @@ var loop = setInterval(function() {
   animate.update()
 }, 60)
 
-//################# 
-  /* Sorting function*/
+//#################
 
-var playertreasure = new Create_object('player') 
+var playertreasure = new Create_object('player')
 
-function counting(index){
-var myBlocks = new Block().blocks
+function counting(index) {
+  var myBlocks = new Block().blocks
+  playertreasure.treasure.chicken = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.chicken + playertreasure.treasure.peasant)) * playertreasure.treasure.chicken * myBlocks[index].quantity_affect[1] * playertreasure.coefficient.chicken - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
+  playertreasure.treasure.meat = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.meat + playertreasure.treasure.peasant)) * playertreasure.treasure.meat * myBlocks[index].quantity_affect[2] * playertreasure.coefficient.pork - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
+  playertreasure.treasure.peasant = playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3];
+  playertreasure.treasure.warrior = playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4];
 
-myBlocks.sort(SortBy.index)
-if(index==20){
-  console.log("dzaan yleoba qeni");
-  index=0;
+  playertreasure.treasure.gold = playertreasure.treasure.gold * myBlocks[index].quantity_affect[5] + 0.1 * (playertreasure.treasure.bread * myBlocks[index].quantity_affect[0] * myBlocks[index].change_affect[0] + playertreasure.treasure.meat * myBlocks[index].quantity_affect[1] + playertreasure.treasure.chicken * myBlocks[index].quantity_affect[2] - playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3] * myBlocks[index].change_affect[3] - playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4] * myBlocks[index].change_affect[4]);
+  var gold = Math.round(playertreasure.treasure.gold);
+  var meat = playertreasure.treasure.meat;
+  var chicken = playertreasure.treasure.chicken;
+  var bread = playertreasure.treasure.bread;
+  var peasant = Math.round(playertreasure.treasure.peasant);
+  var warrior = Math.round(playertreasure.treasure.warrior);
+  console.log(meat);
+  $("#goldspan").text(gold);
+  $("#wheatspan").text(bread);
+  $("#chickenspan").text(chicken);
+  $("#porkspan").text(meat);
+  $("#peasantspan").text(peasant);
+  $("#warriorspan").text(warrior);
+  $("#centralalert").text(myBlocks[index].description);
 
-}
-playertreasure.treasure.chicken=Math.round((0.6+
-  playertreasure.treasure.peasant/
-  (playertreasure.treasure.chicken+
-    playertreasure.treasure.peasant))
-*playertreasure.treasure.chicken
-*myBlocks[index].quantity_affect[1]
-*playertreasure.coefficient.chicken-
-0.1
-*(playertreasure.coefficient.peasant
-  *playertreasure.treasure.peasant+
-  playertreasure.coefficient.warrior
-  *playertreasure.treasure.warrior));
-playertreasure.treasure.meat=Math.round((0.6+playertreasure.treasure.peasant/(playertreasure.treasure.meat+playertreasure.treasure.peasant))*playertreasure.treasure.meat*myBlocks[index].quantity_affect[2]*playertreasure.coefficient.pork-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
-playertreasure.treasure.peasant=playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3];
-playertreasure.treasure.warrior=playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4];
-
-playertreasure.treasure.gold=playertreasure.treasure.gold*myBlocks[index].quantity_affect[5] + 0.1*(playertreasure.treasure.bread*myBlocks[index].quantity_affect[0]*myBlocks[index].change_affect[0] + playertreasure.treasure.meat*myBlocks[index].quantity_affect[1]+playertreasure.treasure.chicken*myBlocks[index].quantity_affect[2]-playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3]*myBlocks[index].change_affect[3] - playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4]*myBlocks[index].change_affect[4]);
-var gold=Math.round(playertreasure.treasure.gold);
-var meat=playertreasure.treasure.meat;
-var chicken=playertreasure.treasure.chicken;
-var bread=playertreasure.treasure.bread;
-var peasant=Math.round(playertreasure.treasure.peasant);
-var warrior=Math.round(playertreasure.treasure.warrior);
-console.log(meat);
-console.log(index);
-$("#goldspan").text(gold);
-$("#wheatspan").text(bread);
-$("#chickenspan").text(chicken);
-$("#porkspan").text(meat);
-$("#peasantspan").text(peasant);
-$("#warriorspan").text(warrior);
-$(".centralalert").text(myBlocks[index].description);
-console.log(myBlocks[index].description);
-console.log(myBlocks[index].name);
-
-console.log(myBlocks)
-
-console.log(myBlocks)
 }
 
 function walking(position, index = 0) {
@@ -292,7 +256,7 @@ function walking(position, index = 0) {
     $('#s' + animate.position.index).addClass('curr_active')
     document.querySelector('#random')
       .removeAttribute('disabled')
-      counting(animate.position.index)
+    counting(animate.position.index)
     return
   }
   var margin = 8
@@ -364,10 +328,3 @@ for (var i = 0; len = document.getElementsByClassName('block').length, i < len; 
     document.getElementById('s' + myBlocks[i].index).innerHTML = names.join('')
   }
 }
-
-
-
-
-
-
-
