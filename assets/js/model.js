@@ -308,6 +308,7 @@ for(var i = 0;len = document.getElementsByClassName('block').length, i < len; i 
     }else{
       if(myBlocks[j].index == j){
         console.log(e)
+        
         console.log(j)
         document.getElementById('s'+i).innerHTML = myBlocks[i].name//.upper().substring(0,1)
       }
