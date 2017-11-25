@@ -227,14 +227,16 @@ function counting(index){
 var myBlocks = new Block().blocks
 playertreasure.treasure.chicken=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.chicken+playertreasure.treasure.peasant))*playertreasure.treasure.chicken*myBlocks[index].quantity_affect[1]*playertreasure.coefficient.chicken-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
 playertreasure.treasure.meat=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.meat+playertreasure.treasure.peasant))*playertreasure.treasure.meat*myBlocks[index].quantity_affect[2]*playertreasure.coefficient.pork-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
+playertreasure.treasure.peasant=playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3];
+playertreasure.treasure.warrior=playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4];
 
 playertreasure.treasure.gold=playertreasure.treasure.gold*myBlocks[index].quantity_affect[5] + 0.1*(playertreasure.treasure.bread*myBlocks[index].quantity_affect[0]*myBlocks[index].change_affect[0] + playertreasure.treasure.meat*myBlocks[index].quantity_affect[1]+playertreasure.treasure.chicken*myBlocks[index].quantity_affect[2]-playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3]*myBlocks[index].change_affect[3] - playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4]*myBlocks[index].change_affect[4]);
 var gold=Math.round(playertreasure.treasure.gold);
 var meat=playertreasure.treasure.meat;
 var chicken=playertreasure.treasure.chicken;
 var bread=playertreasure.treasure.bread;
-var peasant=playertreasure.treasure.peasant;
-var warrior=playertreasure.treasure.warrior;
+var peasant=Math.round(playertreasure.treasure.peasant);
+var warrior=Math.round(playertreasure.treasure.warrior);
 console.log(meat);
 $("#goldspan").text(gold);
 $("#wheatspan").text(bread);
