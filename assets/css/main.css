@@ -148,7 +148,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 15px;
+  box-shadow: 0 0 1px red;
+  transition: all 0.2s;
+}
+.markedDiv:hover{
   box-shadow: 0 0 20px red;
+  cursor: pointer;
 }
 
 
