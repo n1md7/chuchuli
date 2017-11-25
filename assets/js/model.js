@@ -244,7 +244,7 @@ $("#chickenspan").text(chicken);
 $("#porkspan").text(meat);
 $("#peasantspan").text(peasant);
 $("#warriorspan").text(warrior);
-
+$("#centralalert").text(myBlocks[index].description);
 
 }
 
