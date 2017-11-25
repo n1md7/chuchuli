@@ -270,7 +270,6 @@ document.querySelector('#random')
   .addEventListener('click', function() {
     this.setAttribute('disabled', 'true')
     var randomnumber = getRandomInt(1, 6)
-    $('#randomnumber').text(randomnumber);
     walking(randomnumber)
 
   }, false)
