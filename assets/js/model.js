@@ -3,6 +3,14 @@ function getRandomInt(min, max) {
 
 }
 
+var SortBy = {
+ 
+     index: function(a, b) {
+       if (a.index < b.index) return -1
+       if (a.index > b.index) return 1
+         return 0
+     }
+   }
 
 function fill(e) {
   var a = []
@@ -225,11 +233,15 @@ var playertreasure = new Create_object('player')
 
 function counting(index) {
   var myBlocks = new Block().blocks
+
+  myBlocks.sort(SortBy.index)
+  if(index==20){
+   index=0;
+}
   playertreasure.treasure.chicken = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.chicken + playertreasure.treasure.peasant)) * playertreasure.treasure.chicken * myBlocks[index].quantity_affect[1] * playertreasure.coefficient.chicken - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
   playertreasure.treasure.meat = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.meat + playertreasure.treasure.peasant)) * playertreasure.treasure.meat * myBlocks[index].quantity_affect[2] * playertreasure.coefficient.pork - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
   playertreasure.treasure.peasant = playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3];
   playertreasure.treasure.warrior = playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4];
-
   playertreasure.treasure.gold = playertreasure.treasure.gold * myBlocks[index].quantity_affect[5] + 0.1 * (playertreasure.treasure.bread * myBlocks[index].quantity_affect[0] * myBlocks[index].change_affect[0] + playertreasure.treasure.meat * myBlocks[index].quantity_affect[1] + playertreasure.treasure.chicken * myBlocks[index].quantity_affect[2] - playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3] * myBlocks[index].change_affect[3] - playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4] * myBlocks[index].change_affect[4]);
   var gold = Math.round(playertreasure.treasure.gold);
   var meat = playertreasure.treasure.meat;
@@ -237,6 +249,11 @@ function counting(index) {
   var bread = playertreasure.treasure.bread;
   var peasant = Math.round(playertreasure.treasure.peasant);
   var warrior = Math.round(playertreasure.treasure.warrior);
+    if((warrior+peasant)>(meat+chicken+bread)){
+      warrior=warrior-((meat+chicken+bread-peasant-warrior)/2);
+      peasant=peasant-((meat+chicken+bread-peasant-warrior)/2);
+    }
+
   console.log(meat);
   $("#goldspan").text(gold);
   $("#wheatspan").text(bread);
