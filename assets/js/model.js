@@ -206,11 +206,11 @@ var loop = setInterval(function() {
 
 
 
-
-
 function walking(position, index = 0) {
   if (index >= position) {
     animate.active.walk = false
+    $('.block').removeClass('curr_active')
+    $('#s' + animate.position.index).addClass('curr_active')
     document.querySelector('#random')
       .removeAttribute('disabled')
     return
