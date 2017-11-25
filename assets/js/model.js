@@ -244,24 +244,24 @@ function walking(position, index = 0) {
 
   if (animate.position.index < 5) {
     animate.position.x -= margin
-    $('#player').css("margin-left", animate.position.x + "vw")
+    $('#player').css("margin-left", animate.position.x + "vh")
     animate.goingReset("left")
     animate.going.left = true
   } else if (animate.position.index >= 5 && animate.position.index < 10) {
     animate.position.y -= margin
     animate.goingReset("up")
     animate.going.up = true
-    $('#player').css("margin-top", animate.position.y + "vw")
+    $('#player').css("margin-top", animate.position.y + "vh")
   } else if (animate.position.index >= 10 && animate.position.index < 15) {
     animate.position.x += margin
     animate.goingReset("right")
     animate.going.right = true
-    $('#player').css("margin-left", animate.position.x + "vw")
+    $('#player').css("margin-left", animate.position.x + "vh")
   } else if (animate.position.index >= 15 && animate.position.index < 20) {
     animate.position.y += margin
     animate.goingReset("down")
     animate.going.down = true
-    $('#player').css("margin-top", animate.position.y + "vw")
+    $('#player').css("margin-top", animate.position.y + "vh")
   }
 
   animate.active.walk = true
