@@ -238,7 +238,7 @@ window.addEventListener('load', function() {
 
 
 var playertreasure = new Create_object('player')
-
+var htmltext=0;
 
 
 
@@ -266,7 +266,7 @@ var currentbuytarget=cost[currenttarget];
         pilllis[i].addEventListener('click', function(){
           $("#perbuy").text(currentbuytarget);
           $("#persale").text(currentselltarget);
-          console.log(this.innerHTML);
+           htmltext=this.innerHTML;
         }) 
       }
 
@@ -297,7 +297,27 @@ var currentbuytarget=cost[currenttarget];
 //################# created selling/buying values
 
 $('.buy').click(function() {
-        var spentgold=parseInt($("#perbuy").text())*$('.sellbuy').val();
+  if(htmltext=='Peasant'){
+        playertreasure.treasure.peasant=parseInt($('.sellbuy').val())+playertreasure.treasure.peasant;
+        console.log(playertreasure.treasure.peasant);
+          }
+          if(htmltext=='Warrior'){
+        playertreasure.treasure.warrior=parseInt($('.sellbuy').val())+playertreasure.treasure.warrior;
+
+          }
+          if(htmltext=='Wheat'){
+        playertreasure.treasure.bread=parseInt($('.sellbuy').val())+playertreasure.treasure.bread;
+
+          }
+          if(htmltext=='Pork'){
+        playertreasure.treasure.meat=parseInt($('.sellbuy').val())+playertreasure.treasure.meat;
+
+          }
+          if(htmltext=='Chicken'){
+        playertreasure.treasure.chicken=parseInt($('.sellbuy').val())+playertreasure.treasure.chicken;
+
+          }
+        var spentgold=parseInt($("#perbuy").text())*parseInt($('.sellbuy').val());
         playertreasure.treasure.gold=playertreasure.treasure.gold-spentgold
                console.log(parseInt($("#perbuy").text()));
 
@@ -313,7 +333,27 @@ $('.buy').click(function() {
 
 
       $('.sell').click(function() {
-        var goughtgold=parseInt($("#persell").text())*$('.sellbuy').val();
+          if(htmltext=='Peasant'){
+        playertreasure.treasure.peasant=-parseInt($('.sellbuy').val())+playertreasure.treasure.peasant;
+        console.log(playertreasure.treasure.peasant);
+          }
+          if(htmltext=='Warrior'){
+        playertreasure.treasure.warrior=-parseInt($('.sellbuy').val())+playertreasure.treasure.warrior;
+
+          }
+          if(htmltext=='Wheat'){
+        playertreasure.treasure.bread=-parseInt($('.sellbuy').val())+playertreasure.treasure.bread;
+
+          }
+          if(htmltext=='Pork'){
+        playertreasure.treasure.meat=-parseInt($('.sellbuy').val())+playertreasure.treasure.meat;
+
+          }
+          if(htmltext=='Chicken'){
+        playertreasure.treasure.chicken=-parseInt($('.sellbuy').val())+playertreasure.treasure.chicken;
+
+          }
+        var goughtgold=parseInt($("#persale").text())*parseInt($('.sellbuy').val());
         playertreasure.treasure.gold=playertreasure.treasure.gold+goughtgold
       console.log(playertreasure.treasure.gold);
         swal({
