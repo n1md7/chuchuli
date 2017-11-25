@@ -5,21 +5,21 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
   <script src="./assets/js/jquery.js" type="text/javascript"></script>
   <script src="./assets/js/bootstrap.js" type="text/javascript"></script>
 </head>
+
 <body>
   <button id='random' class="start btn btn-primary "> start</button>
   <script type="text/javascript">
-    $('#random').click(function(){
-      var randomnumber=Math.floor(Math.random() * 6) + 1  ;
+    $('#random').click(function() {
+      var randomnumber = Math.floor(Math.random() * 6) + 1;
       console.log(randomnumber);
       $('#randomnumber').text(randomnumber);
     })
-
   </script>
-    <div name="numbergenerated" id="randomnumber"></div> 
+  <div name="numbergenerated" id="randomnumber"></div>
 
   <div class="square">
     <div class="column">
@@ -56,22 +56,34 @@
     <div id="player" class="player"></div>
 
   </div>
-<div class="info">
-  <div class="resource" id="wheat">0</div>
+  <div class="info">
+    <div class="resource" id="wheat">0</div>
     <div class="resource" id="chicken">0</div>
-        <div class="resource" id="pork">0</div>
-            <div class="resource" id="peasant">0</div>
-                <div class="resource" id="warrior">0</div>
+    <div class="resource" id="pork">0</div>
+    <div class="resource" id="peasant">0</div>
+    <div class="resource" id="warrior">0</div>
 
 
 
 
-</div>
-<div class="bottom">
-  <div class="marketplace"></div><div class="war"></div>
-</div>
+  </div>
+  <div class="bottom">
+    <div class="marketplace"></div>
+    <div class="war"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    var els = document.getElementsByClassName('block')
+    for(var i = 0; i < els.length; i ++){
+      els[i].setAttribute('data-x',els[i].getBoundingClientRect().x)
+      els[i].setAttribute('data-y',els[i].getBoundingClientRect().y)
+    }
+  </script>
+
 
   <script type="text/javascript" src="./assets/js/model.js"></script>
   <script type="text/javascript" src="./assets/js/animate.js"></script>
 </body>
+
 </html>

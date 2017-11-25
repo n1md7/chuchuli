@@ -132,6 +132,8 @@ function Animation(targetDiv) {
   }
 
 
+
+
   this.update = function() {
     if (this.active.walk) {
       if (this.counter.walk < this.frames.walk) {
@@ -194,3 +196,17 @@ var animate = new Animation(document.querySelector('#player'))
 var loop = setInterval(function() {
   animate.update()
 }, 40)
+
+
+
+
+
+
+
+
+
+
+//  temp unda waishalos
+
+
+var el = document.getElementById('player')
