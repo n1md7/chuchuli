@@ -33,6 +33,7 @@
   line-height: 8vh;
   /*font-size: 10px;*/
   font-weight: bold;
+  color: white;
   vertical-align: middle;
 }
 
@@ -172,39 +173,36 @@
 
 }
 
-#wheat {
-  background-image: url("../../images/wheat.png");
+
+#wheat, #chicken, #pork,#peasant,#warrior,#gold{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#wheat {
+  background-image: url("../../images/wheatc.png");
+
 }
 
 #chicken {
-  background-image: url("../../images/chicken.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../../images/meatc.png");
 }
 
+
 #pork {
-  background-image: url("../../images/meat.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../../images/porkc.png");
 }
 
 #peasant {
-  background-image: url("../../images/peasant.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../../images/peasantc.png");
 }
 
 #warrior {
-  background-image: url("../../images/warrior.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../../images/warriorc.png");
+}
+#gold {
+  background-image: url("../../images/goldc.png");
 }
 
 #player {
