@@ -4,13 +4,13 @@ function getRandomInt(min, max) {
 }
 
 var SortBy = {
- 
-     index: function(a, b) {
-       if (a.index < b.index) return -1
-       if (a.index > b.index) return 1
-         return 0
-     }
-   }
+
+  index: function(a, b) {
+    if (a.index < b.index) return -1
+    if (a.index > b.index) return 1
+    return 0
+  }
+}
 
 function fill(e) {
   var a = []
@@ -29,7 +29,7 @@ function Create_object(name) {
     plague: 1,
     war: 1
   }
-  this.life={
+  this.life = {
     influence: 50,
     faith: 50
 
@@ -246,29 +246,30 @@ var animate = new Animation(document.querySelector('#player'))
 var loop = setInterval(function() {
   animate.update()
 }, 60);
-//################ aq viwyeb 
-(function(){
- //masivia masivi
-  var cost=[playertreasure.cost.chicken*playertreasure.costcoefficient.chicken,
- playertreasure.cost.meat*playertreasure.costcoefficient.meat,
- playertreasure.cost.bread*playertreasure.costcoefficient.bread,
- playertreasure.cost.peasant*playertreasure.treasure.peasant,
- playertreasure.cost.warrior*playertreasure.treasure.warrior]
+//################ aq viwyeb
+(function() {
+  //masivia masivi
+  var cost = [playertreasure.cost.chicken * playertreasure.costcoefficient.chicken,
+    playertreasure.cost.meat * playertreasure.costcoefficient.meat,
+    playertreasure.cost.bread * playertreasure.costcoefficient.bread,
+    playertreasure.cost.peasant * playertreasure.treasure.peasant,
+    playertreasure.cost.warrior * playertreasure.treasure.warrior
+  ]
 
 
-var currenttarget=$('ul.nav-tabs li.active').index();
-var currentselltarget=cost[currenttarget];
-var currentbuytarget=cost[currenttarget];
+  var currenttarget = $('ul.nav-tabs li.active').index();
+  var currentselltarget = cost[currenttarget];
+  var currentbuytarget = cost[currenttarget];
 
   var pilllis = document.querySelectorAll('ul.nav-tabs li a')
-      for (var i = 0; i < pilllis.length; i++) {
+  for (var i = 0; i < pilllis.length; i++) {
 
-        pilllis[i].addEventListener('click', function(){
-          $("#perbuy").text(currentbuytarget);
-          $("#persale").text(currentselltarget);
-          console.log(this.innerHTML);
-        }) 
-      }
+    pilllis[i].addEventListener('click', function() {
+      $("#perbuy").text(currentbuytarget);
+      $("#persale").text(currentselltarget);
+      console.log(this.innerHTML);
+    })
+  }
 
 
 
@@ -276,18 +277,18 @@ var currentbuytarget=cost[currenttarget];
 
 
   document.querySelector('.sellbuy')
-    .addEventListener('change', function(){
+    .addEventListener('change', function() {
       console.log(this.value);
-      currentsell=currentselltarget
+      currentsell = currentselltarget
 
-           currentselltarget=(currentselltarget/Math.pow(1.03, this.value-1)).toFixed(2);
-           currentbuytarget=(currentbuytarget*Math.pow(1.02, this.value-1)).toFixed(2);
-         
-           $("#perbuy").text(currentbuytarget);
-          $("#persale").text(currentselltarget);
-          currentselltarget=currentsell;
-          currentbuytarget=currentsell;
-          console.log(currentbuytarget);
+      currentselltarget = (currentselltarget / Math.pow(1.03, this.value - 1)).toFixed(2);
+      currentbuytarget = (currentbuytarget * Math.pow(1.02, this.value - 1)).toFixed(2);
+
+      $("#perbuy").text(currentbuytarget);
+      $("#persale").text(currentselltarget);
+      currentselltarget = currentsell;
+      currentbuytarget = currentsell;
+      console.log(currentbuytarget);
 
     })
 
@@ -297,38 +298,38 @@ var currentbuytarget=cost[currenttarget];
 //################# created selling/buying values
 
 $('.buy').click(function() {
-        var spentgold=parseInt($("#perbuy").text())*$('.sellbuy').val();
-        playertreasure.treasure.gold=playertreasure.treasure.gold-spentgold
-               console.log(parseInt($("#perbuy").text()));
+  var spentgold = parseInt($("#perbuy").text()) * $('.sellbuy').val();
+  playertreasure.treasure.gold = playertreasure.treasure.gold - spentgold
+  console.log(parseInt($("#perbuy").text()));
 
-        console.log($('.sellbuy').val());
-        swal({
-          position: 'center',
-          type: 'success',
-          title: 'You have a new things yay',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      })
+  console.log($('.sellbuy').val());
+  swal({
+    position: 'center',
+    type: 'success',
+    title: 'You have a new things yay',
+    showConfirmButton: false,
+    timer: 1500
+  })
+})
 
 
-      $('.sell').click(function() {
-        var goughtgold=parseInt($("#persell").text())*$('.sellbuy').val();
-        playertreasure.treasure.gold=playertreasure.treasure.gold+goughtgold
-      console.log(playertreasure.treasure.gold);
-        swal({
-          position: 'center',
-          type: 'success',
-          title: 'You have successfully sold your product',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      })
+$('.sell').click(function() {
+  var goughtgold = parseInt($("#persell").text()) * $('.sellbuy').val();
+  playertreasure.treasure.gold = playertreasure.treasure.gold + goughtgold
+  console.log(playertreasure.treasure.gold);
+  swal({
+    position: 'center',
+    type: 'success',
+    title: 'You have successfully sold your product',
+    showConfirmButton: false,
+    timer: 1500
+  })
+})
 
 
 //################ sent selling/buying values
 
-    
+
 //#################
 
 
@@ -336,16 +337,16 @@ function counting(index) {
   var myBlocks = new Block().blocks
 
   myBlocks.sort(SortBy.index)
-  if(index==20){
-   index=0;
-}
+  if (index == 20) {
+    index = 0;
+  }
 
-//##################### initialising costcoefficients
-playertreasure.costcoefficient.bread = myBlocks[index].trade_affect[0]
-playertreasure.costcoefficient.chicken = myBlocks[index].trade_affect[1]
-playertreasure.costcoefficient.meat = myBlocks[index].trade_affect[2]
-playertreasure.costcoefficient.peasant = myBlocks[index].trade_affect[3]
-playertreasure.costcoefficient.warrior = myBlocks[index].trade_affect[4]
+  //##################### initialising costcoefficients
+  playertreasure.costcoefficient.bread = myBlocks[index].trade_affect[0]
+  playertreasure.costcoefficient.chicken = myBlocks[index].trade_affect[1]
+  playertreasure.costcoefficient.meat = myBlocks[index].trade_affect[2]
+  playertreasure.costcoefficient.peasant = myBlocks[index].trade_affect[3]
+  playertreasure.costcoefficient.warrior = myBlocks[index].trade_affect[4]
 
 
 
@@ -355,36 +356,35 @@ playertreasure.costcoefficient.warrior = myBlocks[index].trade_affect[4]
   playertreasure.treasure.warrior = playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4];
   playertreasure.treasure.gold = playertreasure.treasure.gold * myBlocks[index].quantity_affect[5] + 0.1 * (playertreasure.treasure.bread * myBlocks[index].quantity_affect[0] * myBlocks[index].change_affect[0] + playertreasure.treasure.meat * myBlocks[index].quantity_affect[1] + playertreasure.treasure.chicken * myBlocks[index].quantity_affect[2] - playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3] * myBlocks[index].change_affect[3] - playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4] * myBlocks[index].change_affect[4]);
   var gold = Math.round(playertreasure.treasure.gold);
-if(index==10 || index ==1){
-  if(playertreasure.life.influence>50){
-    gold=gold+5;
+  if (index == 10 || index == 1) {
+    if (playertreasure.life.influence > 50) {
+      gold = gold + 5;
+    } else {
+      gold = gold - 10;
+    }
+
   }
-  else{
-    gold=gold-10;
-  }
-
-}
-  var influence=Math.round(playertreasure.life.influence*myBlocks[index].change_affect[2]);
-  var faith=Math.round(playertreasure.life.faith*myBlocks[index].change_affect[1]);
-    $("#influence").text(influence);
-  $("#faith").text(faith);
+  var influence = Math.round(playertreasure.life.influence * myBlocks[index].change_affect[2]);
+  var faith = Math.round(playertreasure.life.faith * myBlocks[index].change_affect[1]);
+  $("#influence span").html(influence)
+  $("#influence").css('width',influence+'%');
+  $("#faith span").html(faith)
+  $("#faith").css('width',faith+'%');
 
 
 
 
 
-
- console.log($('ul.nav-tabs li').hasClass('active'));
 
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
   var bread = playertreasure.treasure.bread;
   var peasant = Math.round(playertreasure.treasure.peasant);
   var warrior = Math.round(playertreasure.treasure.warrior);
-    if((warrior+peasant)>(meat+chicken+bread)){
-      warrior=warrior-((meat+chicken+bread-peasant-warrior)/2);
-      peasant=peasant-((meat+chicken+bread-peasant-warrior)/2);
-    }
+  if ((warrior + peasant) > (meat + chicken + bread)) {
+    warrior = warrior - ((meat + chicken + bread - peasant - warrior) / 2);
+    peasant = peasant - ((meat + chicken + bread - peasant - warrior) / 2);
+  }
 
   $("#goldspan").text(gold);
   $("#wheatspan").text(bread);
@@ -392,7 +392,7 @@ if(index==10 || index ==1){
   $("#porkspan").text(meat);
   $("#peasantspan").text(peasant);
   $("#warriorspan").text(warrior);
-  $(".centralalert").text(myBlocks[index].description);
+  $(".centralalert p").text(myBlocks[index].description);
 
 }
 

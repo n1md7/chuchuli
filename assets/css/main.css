@@ -280,14 +280,9 @@ button[name=button]{
 
 .centralalert {
   position: absolute;
-  background: white;
-  vertical-align: center;
-  text-align: center;
-  word-wrap: break-word;
   margin-left: 8vh;
   margin-top: 8vh;
   color: white;
-  line-height: 32vh;
   width: 32vh;
   height: 32vh;
   background: url('../slots/back2.jpg');
@@ -295,7 +290,15 @@ button[name=button]{
   background-repeat: no-repeat;
   background-position: center;
 }
-
+.centralalert p{
+  margin:auto;
+  vertical-align: center;
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  word-wrap: break-word;
+  width:70%;
+  margin-top:25%;
+}
 .bottom {
   position: absolute;
   margin-top: 90vh;
