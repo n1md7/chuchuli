@@ -15,9 +15,16 @@
 <body>
   <audio id="dice3d-sound" src="./assets/mp3/nc93322.mp3"></audio>
 
+  <div class="progressBar">
+    <div class="first">
+      <div class="progress-bar progress-bar-danger active" style="width:40%">Faith 10%</div>
+    </div>
+    <div class="second">
+      <div class="progress-bar progress-bar-striped active pull-right" style="width:80%">Influance 80%</div>
+    </div>
+  </div>
+
   <button id='random' class="start btn btn-primary "> start</button>
-  <script type="text/javascript">
-  </script>
 
   <div class="square">
     <div class="column">
@@ -64,11 +71,11 @@
   </div>
 
   <script type="text/javascript">
-    var els = document.getElementsByClassName('block')
-    for (var i = 0; i < els.length; i++) {
-      els[i].setAttribute('data-x', els[i].getBoundingClientRect().x)
-      els[i].setAttribute('data-y', els[i].getBoundingClientRect().y)
-    }
+    // var els = document.getElementsByClassName('block')
+    // for (var i = 0; i < els.length; i++) {
+    //   els[i].setAttribute('data-x', els[i].getBoundingClientRect().x)
+    //   els[i].setAttribute('data-y', els[i].getBoundingClientRect().y)
+    // }
   </script>
 
 
