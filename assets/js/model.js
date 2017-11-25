@@ -4,12 +4,23 @@ function getRandomInt(min, max) {
 }
 
 
+  /* Sorting function*/
+  var SortBy = {
+    index: function(a, b) {
+      if (a.index < b.index) return -1
+      if (a.index > b.index) return 1
+        return 0
+    }
+  }
+
 function fill(e) {
   var a = []
   for (var i = 0; i < e; i++)
     a.push(i < 10 ? '0' + i : i)
   return a
 }
+
+
 
 
 
@@ -220,13 +231,32 @@ var loop = setInterval(function() {
 }, 60)
 
 //################# 
+  /* Sorting function*/
 
 var playertreasure = new Create_object('player') 
 
 function counting(index){
 var myBlocks = new Block().blocks
-playertreasure.treasure.chicken=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.chicken+playertreasure.treasure.peasant))*playertreasure.treasure.chicken*myBlocks[index].quantity_affect[1]*playertreasure.coefficient.chicken-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
-playertreasure.treasure.meat=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.meat+playertreasure.treasure.peasant))*playertreasure.treasure.meat*myBlocks[index].quantity_affect[2]*playertreasure.coefficient.pork-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
+
+myBlocks.sort(SortBy.index)
+if(index==20){
+  console.log("dzaan yleoba qeni");
+  index=0;
+
+}
+playertreasure.treasure.chicken=Math.round((0.6+
+  playertreasure.treasure.peasant/
+  (playertreasure.treasure.chicken+
+    playertreasure.treasure.peasant))
+*playertreasure.treasure.chicken
+*myBlocks[index].quantity_affect[1]
+*playertreasure.coefficient.chicken-
+0.1
+*(playertreasure.coefficient.peasant
+  *playertreasure.treasure.peasant+
+  playertreasure.coefficient.warrior
+  *playertreasure.treasure.warrior));
+playertreasure.treasure.meat=Math.round((0.6+playertreasure.treasure.peasant/(playertreasure.treasure.meat+playertreasure.treasure.peasant))*playertreasure.treasure.meat*myBlocks[index].quantity_affect[2]*playertreasure.coefficient.pork-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
 playertreasure.treasure.peasant=playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3];
 playertreasure.treasure.warrior=playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4];
 
@@ -238,14 +268,20 @@ var bread=playertreasure.treasure.bread;
 var peasant=Math.round(playertreasure.treasure.peasant);
 var warrior=Math.round(playertreasure.treasure.warrior);
 console.log(meat);
+console.log(index);
 $("#goldspan").text(gold);
 $("#wheatspan").text(bread);
 $("#chickenspan").text(chicken);
 $("#porkspan").text(meat);
 $("#peasantspan").text(peasant);
 $("#warriorspan").text(warrior);
-$("#centralalert").text(myBlocks[index].description);
+$(".centralalert").text(myBlocks[index].description);
+console.log(myBlocks[index].description);
+console.log(myBlocks[index].name);
 
+console.log(myBlocks)
+
+console.log(myBlocks)
 }
 
 function walking(position, index = 0) {
