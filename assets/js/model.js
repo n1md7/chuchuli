@@ -1,6 +1,8 @@
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+
 }
+
 
 function fill(e) {
   var a = []
@@ -12,6 +14,7 @@ function fill(e) {
 
 function Create_object(name) {
   this.name = name
+  
   this.counter = {
     year: 1,
     plague: 1,
@@ -39,7 +42,7 @@ function Create_object(name) {
     this.coefficient.peasant = 1
     this.coefficient.pork = 1
     this.coefficient.chicken = 1
-
+    this.counter.index=0
     this.counter.year = 1
     this.counter.plague = 1
     this.counter.war = 1
@@ -124,6 +127,12 @@ function Animation(targetDiv) {
     left: true
   }
 
+  this.position={
+  	index: 0,
+  	x: 40,
+  	y: 40
+  }
+
   this.goingReset = function(e) {
     this.going.right = e == "right" ? true : false
     this.going.left = e == "left" ? true : false
@@ -201,9 +210,42 @@ var loop = setInterval(function() {
 
 
 
+function walking(rand){
+	var a=animate.position.index
+	for(var i=0;i<rand;i++){
+		
+		if(a<5){
+			animate.position.x=animate.position.x-8
+			$('#player').css("margin-left", animate.position.x+"vw")
+		}
+		if(a>=5&&a<10){
+			animate.position.y=animate.position.y-8
+			$('#player').css("margin-top", animate.position.y+"vw")
+		}
+		if(a>=10&&a<15){
+			animate.position.x=animate.position.x+8
+			$('#player').css("margin-left", animate.position.x+"vw")
+		}
+		if(a>=15&&a<20){
+			animate.position.y=animate.position.y+8
+			$('#player').css("margin-top", animate.position.y+"vw")
+		}
+		if(a>19){
+			a=a-20
+		}
+		a++
 
 
+	}
+	animate.position.index=animate.position.index+rand;
+}
 
+$('#random').click(function() {
+      var randomnumber = Math.floor(Math.random() * 6) + 1;
+      console.log(randomnumber);
+      $('#randomnumber').text(randomnumber);
+      walking(randomnumber)
+    })
 
 
 //  temp unda waishalos
