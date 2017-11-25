@@ -197,22 +197,6 @@ function Animation(targetDiv) {
 
 
 
-function Game(){
-  this.title = [
-    {
-      name: 'Plague',
-      affect: 20, //per cent
-      index: 15
-    },{
-
-    }
-
-  ]
-}
-
-
-
-
 
 
 var animate = new Animation(document.querySelector('#player'))
