@@ -14,7 +14,7 @@ function fill(e) {
 
 function Create_object(name) {
   this.name = name
-  
+
   this.counter = {
     year: 1,
     plague: 1,
@@ -42,7 +42,7 @@ function Create_object(name) {
     this.coefficient.peasant = 1
     this.coefficient.pork = 1
     this.coefficient.chicken = 1
-    this.counter.index=0
+    this.counter.index = 0
     this.counter.year = 1
     this.counter.plague = 1
     this.counter.war = 1
@@ -127,10 +127,10 @@ function Animation(targetDiv) {
     left: true
   }
 
-  this.position={
-  	index: 0,
-  	x: 40,
-  	y: 40
+  this.position = {
+    index: 0,
+    x: 40,
+    y: 40
   }
 
   this.goingReset = function(e) {
@@ -191,12 +191,26 @@ function Animation(targetDiv) {
       }
     }
 
-
   }
 
-
-
 }
+
+
+
+function Game(){
+  this.title = [
+    {
+      name: 'Plague',
+      affect: 20, //per cent
+      index: 15
+    },{
+
+    }
+
+  ]
+}
+
+
 
 
 
@@ -204,51 +218,65 @@ function Animation(targetDiv) {
 var animate = new Animation(document.querySelector('#player'))
 var loop = setInterval(function() {
   animate.update()
-}, 40)
+}, 60)
 
 
 
 
 
-function walking(rand){
-	var a=animate.position.index
-	for(var i=0;i<rand;i++){
-		
-		if(a<5){
-			animate.position.x=animate.position.x-8
-			$('#player').css("margin-left", animate.position.x+"vw")
-		}
-		if(a>=5&&a<10){
-			animate.position.y=animate.position.y-8
-			$('#player').css("margin-top", animate.position.y+"vw")
-		}
-		if(a>=10&&a<15){
-			animate.position.x=animate.position.x+8
-			$('#player').css("margin-left", animate.position.x+"vw")
-		}
-		if(a>=15&&a<20){
-			animate.position.y=animate.position.y+8
-			$('#player').css("margin-top", animate.position.y+"vw")
-		}
-		if(a>19){
-			a=a-20
-		}
-		a++
+function walking(position, index = 0) {
+  if (index >= position) {
+    animate.active.walk = false
+    document.querySelector('#random')
+      .removeAttribute('disabled')
+    return
+  }
+  var margin = 8
+  if (animate.position.index >= 20) {
+    animate.position.index = 0
+  }
 
+  if (animate.position.index < 5) {
+    animate.position.x -= margin
+    $('#player').css("margin-left", animate.position.x + "vw")
+    animate.goingReset("left")
+    animate.going.left = true
+  } else if (animate.position.index >= 5 && animate.position.index < 10) {
+    animate.position.y -= margin
+    animate.goingReset("up")
+    animate.going.up = true
+    $('#player').css("margin-top", animate.position.y + "vw")
+  } else if (animate.position.index >= 10 && animate.position.index < 15) {
+    animate.position.x += margin
+    animate.goingReset("right")
+    animate.going.right = true
+    $('#player').css("margin-left", animate.position.x + "vw")
+  } else if (animate.position.index >= 15 && animate.position.index < 20) {
+    animate.position.y += margin
+    animate.goingReset("down")
+    animate.going.down = true
+    $('#player').css("margin-top", animate.position.y + "vw")
+  }
 
-	}
-	animate.position.index=animate.position.index+rand;
+  animate.active.walk = true
+
+  animate.position.index++
+
+    setTimeout(walking, 1000, position, ++index)
 }
 
-$('#random').click(function() {
-      var randomnumber = Math.floor(Math.random() * 6) + 1;
-      console.log(randomnumber);
-      $('#randomnumber').text(randomnumber);
-      walking(randomnumber)
-    })
+
+document.querySelector('#random')
+  .addEventListener('click', function() {
+    this.setAttribute('disabled', 'true')
+    var randomnumber = getRandomInt(1, 6)
+    $('#randomnumber').text(randomnumber);
+    walking(randomnumber)
+
+  }, false)
 
 
-//  temp unda waishalos
+//  temp undanimate.position.index waishalos
 
 
 var el = document.getElementById('player')
