@@ -103,13 +103,18 @@
             <form action="">
               <div class="input-group marketBuyPill">
                 <span class="input-group-addon" id="marketTargetName">Number of Chicken</span>
-                <input type="number" class="form-control" placeholder="Must be Integer" aria-describedby="marketTargetName">
+                <input type="number"  class="form-control sellbuy" placeholder="Must be Integer" value="1" aria-describedby="marketTargetName">
               </div>
+           <br/>
+           <span id="persale"></span><span id="perbuy"></span>
             </form>
+           
             <!-- content here ends  -->
           </p>
+
           <!--  pill tabs end-->
           <hr>
+
           <button type="button" class="btn btn-primary btn-xl pull-left buy" name="button">Buy</button>
           <button type="button" class="btn btn-warning btn-xl pull-right sell" name="button">Sell</button>
         </div>
@@ -121,15 +126,18 @@
     </div>
   </div>
   <!--  end of modal -->
-  <script type="text/javascript">
+  
+  <script type="text/javascript" src="./assets/js/blocks.js"></script>
+  <script type="text/javascript" src="./assets/js/model.js"></script>
+<script type="text/javascript">
     (function() {
       var pilllis = document.querySelectorAll('ul.nav-tabs li a')
       for (var i = 0; i < pilllis.length; i++) {
-        pilllis[i].onclick = function() {
+        pilllis[i].addEventListener('click',function(){
           $('ul.nav-tabs li').removeClass('active')
           $(this.parentNode).addClass('active')
           $('#marketTargetName').html('Number of ' + this.innerHTML)
-        }
+        }) 
       }
 
       $('.buy').click(function() {
@@ -158,8 +166,7 @@
 
     })()
   </script>
-  <script type="text/javascript" src="./assets/js/blocks.js"></script>
-  <script type="text/javascript" src="./assets/js/model.js"></script>
 </body>
 
 </html>
+

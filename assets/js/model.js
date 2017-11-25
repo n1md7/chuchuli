@@ -34,6 +34,20 @@ function Create_object(name) {
     faith: 50
 
   }
+  this.cost = {
+    bread: 2,
+    meat: 2,
+    warrior: 2,
+    chicken: 2,
+    peasant: 2
+  }
+  this.costcoefficient = {
+    bread: 1,
+    meat: 1,
+    warrior: 1,
+    chicken: 1,
+    peasant: 1
+  }
   this.treasure = {
     bread: 10,
     meat: 10,
@@ -223,6 +237,7 @@ window.addEventListener('load', function() {
 }, false)
 
 
+var playertreasure = new Create_object('player')
 
 
 
@@ -230,11 +245,92 @@ window.addEventListener('load', function() {
 var animate = new Animation(document.querySelector('#player'))
 var loop = setInterval(function() {
   animate.update()
-}, 60)
+}, 60);
+//################ aq viwyeb 
+(function(){
+ //masivia masivi
+  var cost=[playertreasure.cost.chicken*playertreasure.costcoefficient.chicken,
+ playertreasure.cost.meat*playertreasure.costcoefficient.meat,
+ playertreasure.cost.bread*playertreasure.costcoefficient.bread,
+ playertreasure.cost.peasant*playertreasure.treasure.peasant,
+ playertreasure.cost.warrior*playertreasure.treasure.warrior]
 
+
+var currenttarget=$('ul.nav-tabs li.active').index();
+var currentselltarget=cost[currenttarget];
+var currentbuytarget=cost[currenttarget];
+
+  var pilllis = document.querySelectorAll('ul.nav-tabs li a')
+      for (var i = 0; i < pilllis.length; i++) {
+
+        pilllis[i].addEventListener('click', function(){
+          $("#perbuy").text(currentbuytarget);
+          $("#persale").text(currentselltarget);
+          console.log(this.innerHTML);
+        }) 
+      }
+
+
+
+
+
+
+  document.querySelector('.sellbuy')
+    .addEventListener('change', function(){
+      console.log(this.value);
+      currentsell=currentselltarget
+
+           currentselltarget=(currentselltarget/Math.pow(1.03, this.value-1)).toFixed(2);
+           currentbuytarget=(currentbuytarget*Math.pow(1.02, this.value-1)).toFixed(2);
+         
+           $("#perbuy").text(currentbuytarget);
+          $("#persale").text(currentselltarget);
+          currentselltarget=currentsell;
+          currentbuytarget=currentsell;
+          console.log(currentbuytarget);
+
+    })
+
+
+})()
+
+//################# created selling/buying values
+
+$('.buy').click(function() {
+        var spentgold=parseInt($("#perbuy").text())*$('.sellbuy').val();
+        playertreasure.treasure.gold=playertreasure.treasure.gold-spentgold
+               console.log(parseInt($("#perbuy").text()));
+
+        console.log($('.sellbuy').val());
+        swal({
+          position: 'center',
+          type: 'success',
+          title: 'You have a new things yay',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+
+
+      $('.sell').click(function() {
+        var goughtgold=parseInt($("#persell").text())*$('.sellbuy').val();
+        playertreasure.treasure.gold=playertreasure.treasure.gold+goughtgold
+      console.log(playertreasure.treasure.gold);
+        swal({
+          position: 'center',
+          type: 'success',
+          title: 'You have successfully sold your product',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+
+
+//################ sent selling/buying values
+
+    
 //#################
 
-var playertreasure = new Create_object('player')
 
 function counting(index) {
   var myBlocks = new Block().blocks
@@ -243,6 +339,16 @@ function counting(index) {
   if(index==20){
    index=0;
 }
+
+//##################### initialising costcoefficients
+playertreasure.costcoefficient.bread = myBlocks[index].trade_affect[0]
+playertreasure.costcoefficient.chicken = myBlocks[index].trade_affect[1]
+playertreasure.costcoefficient.meat = myBlocks[index].trade_affect[2]
+playertreasure.costcoefficient.peasant = myBlocks[index].trade_affect[3]
+playertreasure.costcoefficient.warrior = myBlocks[index].trade_affect[4]
+
+
+
   playertreasure.treasure.chicken = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.chicken + playertreasure.treasure.peasant)) * playertreasure.treasure.chicken * myBlocks[index].quantity_affect[1] * playertreasure.coefficient.chicken - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
   playertreasure.treasure.meat = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.meat + playertreasure.treasure.peasant)) * playertreasure.treasure.meat * myBlocks[index].quantity_affect[2] * playertreasure.coefficient.pork - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
   playertreasure.treasure.peasant = playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3];
@@ -262,6 +368,13 @@ if(index==10 || index ==1){
   var faith=Math.round(playertreasure.life.faith*myBlocks[index].change_affect[1]);
     $("#influence").text(influence);
   $("#faith").text(faith);
+
+
+
+
+
+
+ console.log($('ul.nav-tabs li').hasClass('active'));
 
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
