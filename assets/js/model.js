@@ -230,11 +230,18 @@ playertreasure.treasure.meat=Math.round((0.8+playertreasure.treasure.peasant/(pl
 
 playertreasure.treasure.gold=playertreasure.treasure.gold*myBlocks[index].quantity_affect[5] + 0.1*(playertreasure.treasure.bread*myBlocks[index].quantity_affect[0]*myBlocks[index].change_affect[0] + playertreasure.treasure.meat*myBlocks[index].quantity_affect[1]+playertreasure.treasure.chicken*myBlocks[index].quantity_affect[2]-playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3]*myBlocks[index].change_affect[3] - playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4]*myBlocks[index].change_affect[4]);
 var gold=Math.round(playertreasure.treasure.gold);
-console.log(gold);
+var meat=playertreasure.treasure.meat;
+var chicken=playertreasure.treasure.chicken;
+var bread=playertreasure.treasure.bread;
+var peasant=playertreasure.treasure.peasant;
+var warrior=playertreasure.treasure.warrior;
+console.log(meat);
 $("#goldspan").text(gold);
-
-$("#chickenspan").text(playertreasure.treasure.chicken);
-$("#porkspanspan").text(playertreasure.treasure.meat);
+$("#wheatspan").text(bread);
+$("#chickenspan").text(chicken);
+$("#porkspan").text(meat);
+$("#peasantspan").text(peasant);
+$("#warriorspan").text(warrior);
 
 
 }

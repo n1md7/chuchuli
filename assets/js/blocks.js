@@ -10,7 +10,6 @@ function Block() {
       description: 'the horrible Plague strikes the village!!! your people are affected '
     }, {
       name: 'Bad Neighbour',
-<<<<<<< HEAD
       faith_affect:[1.2,1],
       quantity_affect:[1,1,1,0.8,0.9,1],
       change_affect:[1,1,1,1,1,1],
@@ -25,17 +24,6 @@ function Block() {
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 14, 
       image: '',
-=======
-      affect: [0.8,1,1,0.8,0.9,1,1,1.2],
-      index: 2,
-      color: 'rgba(255,0,0,0.5)',
-      description: 'Neighbour is plotting against you.'
-    }, {
-      name: 'Bad Neighbour',
-      affect: [0.8,1,1,0.8,0.9,1,1,1.2],
-      index: 14,
-      color: 'rgba(255,0,0,0.5)',
->>>>>>> 1928638754ae92452e824c8d565499ddca0db028
       description: 'Neighbour is plotting against you.'
     },
     {
