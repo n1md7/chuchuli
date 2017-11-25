@@ -30,8 +30,8 @@ function Create_object(name) {
     war: 1
   }
   this.life={
-    influence=20;
-    faith=10;
+    influence: 50,
+    faith: 50
 
   }
   this.treasure = {
@@ -258,7 +258,9 @@ if(index==10 || index ==1){
   }
   var influence=playertreasure.life.influence*myBlocks[index].change_affect[2];
   var faith=playertreasure.life.faith*myBlocks[index].change_affect[1];
-  
+    $("#influence").text(influence);
+  $("#faith").text(faith);
+
 }
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
