@@ -12,6 +12,7 @@ function fill(e) {
 }
 
 
+
 function Create_object(name) {
   this.name = name
 
@@ -21,27 +22,32 @@ function Create_object(name) {
     war: 1
   }
   this.treasure = {
-    bread: 0,
-    meat: 0,
-    gold: 0,
-    warrior: 0
+    bread: 10,
+    meat: 10,
+    gold: 10,
+    warrior: 10,
+    chicken: 10,
+    peasant:10
   }
   this.coefficient = {
-    bread: 0,
-    peasant: 0,
-    pork: 0,
-    chicken: 0
+    bread: 1.1,
+    peasant: 1.2,
+    pork: 1.1,
+    chicken: 1.1,
+    warrior:1.2
   }
   this.default = function() {
     this.treasure.bread = 10
     this.treasure.meat = 10
     this.treasure.gold = 10
     this.treasure.warrior = 10
+    this.treasure.peasant = 10
 
-    this.coefficient.bread = 1
-    this.coefficient.peasant = 1
-    this.coefficient.pork = 1
-    this.coefficient.chicken = 1
+    this.coefficient.bread = 1.1
+    this.coefficient.peasant = 0.8
+    this.coefficient.warrior = 0.9
+    this.coefficient.pork = 1.3
+    this.coefficient.chicken = 1.2
     this.counter.index = 0
     this.counter.year = 1
     this.counter.plague = 1
@@ -49,7 +55,6 @@ function Create_object(name) {
 
   }
 }
-
 
 
 function Animation(targetDiv) {
@@ -197,17 +202,6 @@ function Animation(targetDiv) {
 
 
 
-function Game() {
-  this.title = [{
-      name: 'Plague',
-      affect: 20, //per cent
-      index: 15
-    }, {
-
-    }
-
-  ]
-}
 
 
 
@@ -225,15 +219,35 @@ var loop = setInterval(function() {
   animate.update()
 }, 60)
 
+//################# 
 
+var playertreasure = new Create_object('player') 
+
+function counting(index){
+var myBlocks = new Block().blocks
+playertreasure.treasure.chicken=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.chicken+playertreasure.treasure.peasant))*playertreasure.treasure.chicken*myBlocks[index].quantity_affect[1]*playertreasure.coefficient.chicken-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
+playertreasure.treasure.meat=Math.round((0.8+playertreasure.treasure.peasant/(playertreasure.treasure.meat+playertreasure.treasure.peasant))*playertreasure.treasure.meat*myBlocks[index].quantity_affect[2]*playertreasure.coefficient.pork-0.1*(playertreasure.coefficient.peasant*playertreasure.treasure.peasant+playertreasure.coefficient.warrior*playertreasure.treasure.warrior));
+
+playertreasure.treasure.gold=playertreasure.treasure.gold*myBlocks[index].quantity_affect[5] + 0.1*(playertreasure.treasure.bread*myBlocks[index].quantity_affect[0]*myBlocks[index].change_affect[0] + playertreasure.treasure.meat*myBlocks[index].quantity_affect[1]+playertreasure.treasure.chicken*myBlocks[index].quantity_affect[2]-playertreasure.treasure.peasant*myBlocks[index].quantity_affect[3]*myBlocks[index].change_affect[3] - playertreasure.treasure.warrior*myBlocks[index].quantity_affect[4]*myBlocks[index].change_affect[4]);
+var gold=Math.round(playertreasure.treasure.gold);
+console.log(gold);
+$("#goldspan").text(gold);
+
+$("#chickenspan").text(playertreasure.treasure.chicken);
+$("#porkspanspan").text(playertreasure.treasure.meat);
+
+
+}
 
 function walking(position, index = 0) {
+
   if (index >= position) {
     animate.active.walk = false
     $('.block').removeClass('curr_active')
     $('#s' + animate.position.index).addClass('curr_active')
     document.querySelector('#random')
       .removeAttribute('disabled')
+      counting(animate.position.index)
     return
   }
   var margin = 8
@@ -306,3 +320,10 @@ for (var i = 0; len = document.getElementsByClassName('block').length, i < len; 
     document.getElementById('s' + myBlocks[i].index).innerHTML = names.join('')
   }
 }
+
+
+
+
+
+
+
