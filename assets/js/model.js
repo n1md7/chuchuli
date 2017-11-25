@@ -238,7 +238,7 @@ window.addEventListener('load', function() {
 
 
 var playertreasure = new Create_object('player')
-var htmltext=0;
+var htmltext = 0;
 
 
 
@@ -264,21 +264,12 @@ var loop = setInterval(function() {
   var pilllis = document.querySelectorAll('ul.nav-tabs li a')
   for (var i = 0; i < pilllis.length; i++) {
 
-<<<<<<< HEAD
     pilllis[i].addEventListener('click', function() {
       $("#perbuy").text(currentbuytarget);
       $("#persale").text(currentselltarget);
-      console.log(this.innerHTML);
+      htmltext = this.innerHTML;
     })
   }
-=======
-        pilllis[i].addEventListener('click', function(){
-          $("#perbuy").text(currentbuytarget);
-          $("#persale").text(currentselltarget);
-           htmltext=this.innerHTML;
-        })
-      }
->>>>>>> b608349976b25d94824116a47de9d5453b45287f
 
 
 
@@ -307,75 +298,73 @@ var loop = setInterval(function() {
 //################# created selling/buying values
 
 $('.buy').click(function() {
-  if(htmltext=='Peasant'){
-        playertreasure.treasure.peasant=parseInt($('.sellbuy').val())+playertreasure.treasure.peasant;
-        console.log(playertreasure.treasure.peasant);
-          }
-          if(htmltext=='Warrior'){
-        playertreasure.treasure.warrior=parseInt($('.sellbuy').val())+playertreasure.treasure.warrior;
+  if (htmltext == 'Peasant') {
+    playertreasure.treasure.peasant = parseInt($('.sellbuy').val()) + playertreasure.treasure.peasant;
+    console.log(playertreasure.treasure.peasant);
+  }
+  if (htmltext == 'Warrior') {
+    playertreasure.treasure.warrior = parseInt($('.sellbuy').val()) + playertreasure.treasure.warrior;
 
-          }
-          if(htmltext=='Wheat'){
-        playertreasure.treasure.bread=parseInt($('.sellbuy').val())+playertreasure.treasure.bread;
+  }
+  if (htmltext == 'Wheat') {
+    playertreasure.treasure.bread = parseInt($('.sellbuy').val()) + playertreasure.treasure.bread;
 
-          }
-          if(htmltext=='Pork'){
-        playertreasure.treasure.meat=parseInt($('.sellbuy').val())+playertreasure.treasure.meat;
+  }
+  if (htmltext == 'Pork') {
+    playertreasure.treasure.meat = parseInt($('.sellbuy').val()) + playertreasure.treasure.meat;
 
-          }
-          if(htmltext=='Chicken'){
-        playertreasure.treasure.chicken=parseInt($('.sellbuy').val())+playertreasure.treasure.chicken;
+  }
+  if (htmltext == 'Chicken') {
+    playertreasure.treasure.chicken = parseInt($('.sellbuy').val()) + playertreasure.treasure.chicken;
 
-          }
-        var spentgold=parseInt($("#perbuy").text())*parseInt($('.sellbuy').val());
-        playertreasure.treasure.gold=playertreasure.treasure.gold-spentgold
-               console.log(parseInt($("#perbuy").text()));
+  }
+  var spentgold = parseInt($("#perbuy").text()) * parseInt($('.sellbuy').val());
+  playertreasure.treasure.gold = playertreasure.treasure.gold - spentgold
+  console.log(parseInt($("#perbuy").text()));
 
-        console.log($('.sellbuy').val());
-        swal({
-          position: 'center',
-          type: 'success',
-          title: 'You have a new things yay',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      })
+  console.log($('.sellbuy').val());
+  swal({
+    position: 'center',
+    type: 'success',
+    title: 'You have a new things yay',
+    showConfirmButton: false,
+    timer: 1500
+  })
+})
 
 
-      $('.sell').click(function() {
-          if(htmltext=='Peasant'){
-        playertreasure.treasure.peasant=-parseInt($('.sellbuy').val())+playertreasure.treasure.peasant;
-        console.log(playertreasure.treasure.peasant);
-          }
-          if(htmltext=='Warrior'){
-        playertreasure.treasure.warrior=-parseInt($('.sellbuy').val())+playertreasure.treasure.warrior;
+$('.sell').click(function() {
+  if (htmltext == 'Peasant') {
+    playertreasure.treasure.peasant = -parseInt($('.sellbuy').val()) + playertreasure.treasure.peasant;
+    console.log(playertreasure.treasure.peasant);
+  }
+  if (htmltext == 'Warrior') {
+    playertreasure.treasure.warrior = -parseInt($('.sellbuy').val()) + playertreasure.treasure.warrior;
 
-          }
-          if(htmltext=='Wheat'){
-        playertreasure.treasure.bread=-parseInt($('.sellbuy').val())+playertreasure.treasure.bread;
+  }
+  if (htmltext == 'Wheat') {
+    playertreasure.treasure.bread = -parseInt($('.sellbuy').val()) + playertreasure.treasure.bread;
 
-          }
-          if(htmltext=='Pork'){
-        playertreasure.treasure.meat=-parseInt($('.sellbuy').val())+playertreasure.treasure.meat;
+  }
+  if (htmltext == 'Pork') {
+    playertreasure.treasure.meat = -parseInt($('.sellbuy').val()) + playertreasure.treasure.meat;
 
-          }
-          if(htmltext=='Chicken'){
-        playertreasure.treasure.chicken=-parseInt($('.sellbuy').val())+playertreasure.treasure.chicken;
+  }
+  if (htmltext == 'Chicken') {
+    playertreasure.treasure.chicken = -parseInt($('.sellbuy').val()) + playertreasure.treasure.chicken;
 
-          }
-        var goughtgold=parseInt($("#persale").text())*parseInt($('.sellbuy').val());
-        playertreasure.treasure.gold=playertreasure.treasure.gold+goughtgold
-      console.log(parseInt($('.sellbuy').val());
-      console.log(parseInt($("#persale").text());
+  }
+  var goughtgold = parseInt($("#persale").text()) * parseInt($('.sellbuy').val());
+  playertreasure.treasure.gold = playertreasure.treasure.gold + goughtgold
 
-        swal({
-          position: 'center',
-          type: 'success',
-          title: 'You have successfully sold your product',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      })
+  swal({
+    position: 'center',
+    type: 'success',
+    title: 'You have successfully sold your product',
+    showConfirmButton: false,
+    timer: 1500
+  })
+})
 
 
 //################ sent selling/buying values
@@ -418,9 +407,9 @@ function counting(index) {
   var influence = Math.round(playertreasure.life.influence * myBlocks[index].change_affect[2]);
   var faith = Math.round(playertreasure.life.faith * myBlocks[index].change_affect[1]);
   $("#influence span").html(influence)
-  $("#influence").css('width',influence+'%');
+  $("#influence").css('width', influence + '%');
   $("#faith span").html(faith)
-  $("#faith").css('width',faith+'%');
+  $("#faith").css('width', faith + '%');
 
 
 
