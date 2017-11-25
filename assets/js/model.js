@@ -212,6 +212,12 @@ function Game(){
 
 
 
+window.addEventListener('load', function(){
+
+},false)
+
+
+
 
 
 
@@ -270,7 +276,19 @@ document.querySelector('#random')
   .addEventListener('click', function() {
     this.setAttribute('disabled', 'true')
     var randomnumber = getRandomInt(1, 6)
-    walking(randomnumber)
+    dice3d(6, randomnumber, function(){
+      walking(randomnumber)
+    });
+    $('#dice3d-table').css({
+      left:0,
+      top:0,
+      right:0,
+      bottom:0,
+      margin:'auto',
+      width:'50px',
+      heigth:'50px'
+    })
+
 
   }, false)
 
