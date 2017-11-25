@@ -29,6 +29,11 @@ function Create_object(name) {
     plague: 1,
     war: 1
   }
+  this.life={
+    influence=20;
+    faith=10;
+
+  }
   this.treasure = {
     bread: 10,
     meat: 10,
@@ -251,6 +256,9 @@ if(index==10 || index ==1){
   else{
     gold=gold-10;
   }
+  var influence=playertreasure.life.influence*myBlocks[index].change_affect[2];
+  var faith=playertreasure.life.faith*myBlocks[index].change_affect[1];
+  
 }
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
