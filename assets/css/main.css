@@ -126,13 +126,32 @@
 
 .start {
   /*margin-left: 40%;*/
-  width: 20%;
+  width: 48vh;
   position: absolute;
   left:0;
   right: 0;
   margin: auto;
   top:15vh;
 }
+
+.markedDiv{
+  width:24vh;
+  height: 16vh;
+  position: absolute;
+  left:0;
+  right:0;
+  margin:auto;
+  border: solid 5px rgba(255,0,0,0.2);
+  top: 80%;
+  background: url('../slots/market.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  box-shadow: 0 0 20px red;
+}
+
+
 
 #s11 {
   margin-left: 0vh;
@@ -225,6 +244,11 @@
   margin-top: 40vh;
   width: 32vh;
   height: 8vh;
+}
+
+
+#faith, #influance{
+  transition: all 1s;
 }
 
 .column_right {
