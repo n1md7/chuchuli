@@ -244,6 +244,14 @@ function counting(index) {
   playertreasure.treasure.warrior = playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4];
   playertreasure.treasure.gold = playertreasure.treasure.gold * myBlocks[index].quantity_affect[5] + 0.1 * (playertreasure.treasure.bread * myBlocks[index].quantity_affect[0] * myBlocks[index].change_affect[0] + playertreasure.treasure.meat * myBlocks[index].quantity_affect[1] + playertreasure.treasure.chicken * myBlocks[index].quantity_affect[2] - playertreasure.treasure.peasant * myBlocks[index].quantity_affect[3] * myBlocks[index].change_affect[3] - playertreasure.treasure.warrior * myBlocks[index].quantity_affect[4] * myBlocks[index].change_affect[4]);
   var gold = Math.round(playertreasure.treasure.gold);
+if(index==10 or index ==1){
+  if(playertreasure.life.influence>50){
+    gold=gold+5;
+  }
+  else{
+    gold=gold-10;
+  }
+}
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
   var bread = playertreasure.treasure.bread;
