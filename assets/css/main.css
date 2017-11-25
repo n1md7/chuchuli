@@ -271,9 +271,13 @@
 .centralalert {
   position: absolute;
   background: white;
+  vertical-align: center;
+  text-align: center;
+  word-wrap: break-word;
   margin-left: 8vh;
   margin-top: 8vh;
   color: white;
+  line-height: 32vh;
   width: 32vh;
   height: 32vh;
   background: url('../slots/back2.jpg');
