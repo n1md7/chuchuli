@@ -256,12 +256,13 @@ if(index==10 || index ==1){
   else{
     gold=gold-10;
   }
-  var influence=playertreasure.life.influence*myBlocks[index].change_affect[2];
-  var faith=playertreasure.life.faith*myBlocks[index].change_affect[1];
+
+}
+  var influence=Math.round(playertreasure.life.influence*myBlocks[index].change_affect[2]);
+  var faith=Math.round(playertreasure.life.faith*myBlocks[index].change_affect[1]);
     $("#influence").text(influence);
   $("#faith").text(faith);
 
-}
   var meat = playertreasure.treasure.meat;
   var chicken = playertreasure.treasure.chicken;
   var bread = playertreasure.treasure.bread;
@@ -272,7 +273,6 @@ if(index==10 || index ==1){
       peasant=peasant-((meat+chicken+bread-peasant-warrior)/2);
     }
 
-  console.log(meat);
   $("#goldspan").text(gold);
   $("#wheatspan").text(bread);
   $("#chickenspan").text(chicken);
