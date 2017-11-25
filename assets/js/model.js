@@ -244,7 +244,7 @@ function counting(index) {
   $("#porkspan").text(meat);
   $("#peasantspan").text(peasant);
   $("#warriorspan").text(warrior);
-  $("#centralalert").text(myBlocks[index].description);
+  $(".centralalert").text(myBlocks[index].description);
 
 }
 
