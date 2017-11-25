@@ -14,7 +14,7 @@ function Block() {
       quantity_affect:[1,1,1,0.8,0.9,1],
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
-      index: 2, 
+      index: 2,
       image: '',
       description: 'Neighbour is plotting against you.'
     }, {
@@ -22,7 +22,7 @@ function Block() {
       quantity_affect:[1,1,1,0.8,0.9,1],
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
-      index: 14, 
+      index: 14,
       image: '',
       description: 'Neighbour is plotting against you.'
     },
