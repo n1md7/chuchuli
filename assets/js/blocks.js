@@ -142,7 +142,7 @@ function Block() {
       change_affect: [1, 1, 1, 1, 1, 0.8],
       trade_affect: [1, 1, 1, 1, 1],
       index: 9,
-      image: false,
+      image: './back/king.jpeg',
       color: 'rgba(200,20,234,0.55)',
       description: 'It is a tryuly majestic day!!! your sun has been born. but it will definitely affect your pocket'
     },
