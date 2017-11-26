@@ -4,4 +4,4 @@ or
 <hr>
 live preview
 <br>  
-<a href="https://github.com/bichiko/chuchuli">web</a>
+<a href="https://bichiko.github.io/chuchuli/">web</a>
