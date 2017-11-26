@@ -433,7 +433,9 @@ function counting(index) {
   $("#peasantspan").text(peasant);
   $("#warriorspan").text(warrior);
   $(".centralalert p").text(upperCaseFirst(myBlocks[index].description));
-
+  $(".centralalert p").click(function(){
+    $(this).html('')
+  })
     swal({
       title: upperCaseFirst(myBlocks[index].name),
       text: upperCaseFirst(myBlocks[index].description),
