@@ -6,6 +6,7 @@ function Block() {
       change_affect:[1,1.4,1.5,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 15,
+      image: './back/plague.jpg',
       color: 'rgba(0,0,0,0.8)',
       description: 'the horrible Plague strikes the village!!! your people are affected '
     }, {
@@ -15,6 +16,7 @@ function Block() {
       change_affect:[1,1.1,1.2,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 2,
+      image: false,
       image: '',
       description: 'Neighbour is plotting against you.'
     }, {
@@ -23,6 +25,7 @@ function Block() {
       change_affect:[1,0.9,0.8,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 14,
+      image: false,
       image: '',
       description: 'Neighbour is plotting against you.'
     },
@@ -32,6 +35,7 @@ function Block() {
       change_affect:[0.5,0.5,0.5,1,1,1.9],
       trade_affect:[0.9,0.9,0.9,1.3,1.5],
       index: 7,
+      image:'./back/war.jpg',
       color: 'rgba(255,0,0,0.8)',
       description: 'The war has started!!! warriors will fight, and get the riches, but they use lots of food'
     },
@@ -41,6 +45,7 @@ function Block() {
       change_affect:[1,1.1,1.1,1,1,1],
       trade_affect:[1,0.8,0.7,1.3,1.2],
       index: 8,
+      image: false,
       color: 'rgba(0,255,0,0.8)',
       description: 'the piglets have already grown, and you have become richer then ever'
     }, {
@@ -49,6 +54,7 @@ function Block() {
       change_affect:[1,1.1,1.1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index: 1,
+      image: false,
       color: 'rgba(255,120,0,0.7)',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
@@ -58,6 +64,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index:  10,
+      image: false,
       color: 'rgba(255,120,0,0.7)',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
@@ -67,6 +74,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[1.3,1.3,1.2,1.3,1.2],
       index: 3,
+      image: false,
       color: 'rgba(234,93,9,0.8)',
       description: 'you can make a good investment in a caravan in china. However, the risks are not as low as you would like them to be'
     },
@@ -76,6 +84,7 @@ function Block() {
       change_affect:[1,1.5,1,1,1,0.9],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 18,
+      image: false,
       color: 'rgba(100,100,134,0.4)',
       description: 'faith is important in ones life. you have gone to seek the God in Rome'
 
@@ -85,6 +94,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1.5],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 12,
+      image: false,
       color: 'rgba(200,20,34,0.8)',
       description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
     }, {
@@ -93,6 +103,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1.5],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 17,
+      image: false,
       color: 'rgba(200,20,34,0.8)',
       description: 'Revenge sweet Revenge. Time to get your riches back from Neighbour!'
     },
@@ -102,6 +113,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 4,
+      image: false,
       color: 'rgba(200,20,234,0.8)',
       description: 'You can hire villagers cheaper!!!'
     },
@@ -111,6 +123,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 5,
+      image: false,
       color: 'rgba(200,70,34,0.6)',
       description: 'The stock is dying!!! the prices for stock skyrocketed!!!'
     }, {
@@ -119,6 +132,7 @@ function Block() {
       change_affect:[1,1,0.7,1,1,2],
       trade_affect:[1,1,1,1.3,1.2],
       index: 0,
+      image: false,
       color: 'rgba(20,20,234,0.8)',
       description: 'His majesty, The king has decided to gift you money'
     },
@@ -128,6 +142,7 @@ function Block() {
       change_affect:[1,1,1,1,1,0.8],
       trade_affect:[1,1,1,1,1],
       index: 9,
+      image: false,
       color: 'rgba(200,20,234,0.55)',
       description: 'It is a tryuly majestic day!!! your sun has been born. but it will definitely affect your pocket'
     },
@@ -137,6 +152,7 @@ function Block() {
       change_affect:[1,1,1.3,1,1,0.6],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 11,
+      image: false,
       color: 'rgba(200,0,134,0.39)',
       description: 'king expects you to pay your taxes. the amount will definitely affect your relation with him'
 
@@ -147,6 +163,7 @@ function Block() {
       change_affect:[1.4,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 19,
+      image: false,
       color: 'rgba(20,220,34,0.81)',
       description: 'such a great harvest has not been seen in decades.'
     },
@@ -156,6 +173,7 @@ function Block() {
       change_affect:[1.4,1,1,1,1,1],
       trade_affect:[0.9,1,1,1.3,1.2],
       index: 16,
+      image: false,
       color: 'rgba(20,220,34,0.81)',
       description: 'such a great harvest has not been seen in decades.'
 
@@ -166,6 +184,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 13,
+      image: false,
       color: 'rgba(120,97,68,0.73)',
       description: 'group of cheap good mercenaries approach town.'
 
@@ -175,6 +194,7 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 6,
+      image: false,
       color: 'rgba(150,20,64,0.65)',
       description: 'your peasants go to piligrimage. That is not good.'
     }

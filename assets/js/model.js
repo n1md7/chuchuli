@@ -432,9 +432,29 @@ function counting(index) {
   $("#porkspan").text(meat);
   $("#peasantspan").text(peasant);
   $("#warriorspan").text(warrior);
-  $(".centralalert p").text(myBlocks[index].description);
+  $(".centralalert p").text(upperCaseFirst(myBlocks[index].description));
+
+    swal({
+      title: upperCaseFirst(myBlocks[index].name),
+      text: upperCaseFirst(myBlocks[index].description),
+      imageUrl: myBlocks[index].image,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      animation: false
+    })
 
 }
+
+function upperCaseFirst(str){
+  firstChar = str.substring( 0, 1 ); // == "c"
+  firstChar.toUpperCase();
+  tail = str.substring( 1 ); // == "heeseburger"
+  str = firstChar + tail; // myString == "Cheeseburger"
+  return str
+}
+
+
 
 function walking(position, index = 0) {
 
