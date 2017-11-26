@@ -194,7 +194,7 @@ function Block() {
       change_affect: [1, 1, 1, 1, 1, 1],
       trade_affect: [0.9, 0.9, 0.9, 1.3, 1.2],
       index: 6,
-      image: false,
+      image: './back/piligrim.jpg',
       color: 'rgba(150,20,64,0.65)',
       description: 'your peasants go to piligrimage. That is not good.'
     }
