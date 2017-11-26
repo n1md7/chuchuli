@@ -446,12 +446,8 @@ function counting(index) {
 
 }
 
-function upperCaseFirst(str){
-  firstChar = str.substring( 0, 1 ); // == "c"
-  firstChar.toUpperCase();
-  tail = str.substring( 1 ); // == "heeseburger"
-  str = firstChar + tail; // myString == "Cheeseburger"
-  return str
+function upperCaseFirst(s){
+  return s.substring(0,1).toUpperCase() + s.substring(1)
 }
 
 
