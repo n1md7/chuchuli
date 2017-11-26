@@ -21,10 +21,10 @@
 
   <div class="progressBar">
     <div class="first">
-      <div id="faith" class="progress-bar progress-bar-danger progress-bar-striped active" style="width:40%">Faith <span>50</span>%</div>
+      <div id="faith" class="progress-bar progress-bar-danger progress-bar-striped active" style="width:50%">Faith <span>50</span>%</div>
     </div>
     <div class="second">
-      <div id="influence" class="progress-bar progress-bar-success progress-bar-striped active pull-right"  style="width:80%">Influence <span>50</span>%</div>
+      <div id="influence" class="progress-bar progress-bar-success progress-bar-striped active pull-right"  style="width:50%">Influence <span>50</span>%</div>
     </div>
   </div>
 
@@ -103,12 +103,15 @@
             <!-- content here starts  -->
             <form action="">
               <div class="input-group marketBuyPill">
-                <span class="input-group-addon" id="marketTargetName">Number of Chicken</span>
-                <input type="number"  class="form-control sellbuy" placeholder="Must be Integer" value="1" aria-describedby="marketTargetName">
+                <span class="input-group-addon" id="marketTargetName">Number of Product</span>
+                <input type="number"  class="form-control sellbuy" min='1' max='100' placeholder="Must be Integer" aria-describedby="marketTargetName">
               </div>
            <br/>
 
-           <span id="persale">2 </span>Gold per one unit sale</span><span class="righty"> Gold per one unit sale</span><span class="righty" id="perbuy">2 </span>
+           <span id="persale"> 2 </span>
+           <span>Gold per one unit sale</span>
+           <span class="righty"> Gold per one unit sale </span>
+           <span class="righty" id="perbuy" style="padding-right:5px;"> 2 </span>
             </form>
 
             <!-- content here ends  -->

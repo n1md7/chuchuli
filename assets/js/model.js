@@ -230,13 +230,6 @@ function Animation(targetDiv) {
 
 
 
-
-
-window.addEventListener('load', function() {
-
-}, false)
-
-
 var playertreasure = new Create_object('player')
 var htmltext = 0;
 
@@ -260,13 +253,13 @@ var loop = setInterval(function() {
   var currenttarget = $('ul.nav-tabs li.active').index();
   var currentselltarget = cost[currenttarget];
   var currentbuytarget = cost[currenttarget];
-
+  console.log(currentbuytarget)
   var pilllis = document.querySelectorAll('ul.nav-tabs li a')
   for (var i = 0; i < pilllis.length; i++) {
 
     pilllis[i].addEventListener('click', function() {
-      $("#perbuy").text(currentbuytarget);
-      $("#persale").text(currentselltarget);
+      $("#perbuy").html(' <b> ' + currentbuytarget + ' </b> ');
+      $("#persale").html(' <b> ' + currentselltarget + ' </b> ');
       htmltext = this.innerHTML;
     })
   }
@@ -278,21 +271,14 @@ var loop = setInterval(function() {
 
   document.querySelector('.sellbuy')
     .addEventListener('change', function() {
-      console.log(this.value);
-      currentsell = currentselltarget
-
       currentselltarget = (currentselltarget / Math.pow(1.03, this.value - 1)).toFixed(2);
       currentbuytarget = (currentbuytarget * Math.pow(1.02, this.value - 1)).toFixed(2);
 
-      $("#perbuy").text(currentbuytarget);
-      $("#persale").text(currentselltarget);
-      currentselltarget = currentsell;
-      currentbuytarget = currentsell;
-      console.log(currentbuytarget);
-
+      $("#perbuy").html(' <b> ' + currentbuytarget + ' </b> ')
+      $("#persale").html(' <b> ' + currentselltarget + ' </b> ')
+      currentselltarget = currentselltarget;
+      currentbuytarget = currentselltarget;
     })
-
-
 })()
 
 //################# created selling/buying values
@@ -320,9 +306,7 @@ $('.buy').click(function() {
   }
   var spentgold = parseInt($("#perbuy").text()) * parseInt($('.sellbuy').val());
   playertreasure.treasure.gold = playertreasure.treasure.gold - spentgold
-  console.log(parseInt($("#perbuy").text()));
 
-  console.log($('.sellbuy').val());
   swal({
     position: 'center',
     type: 'success',
@@ -330,40 +314,74 @@ $('.buy').click(function() {
     showConfirmButton: false,
     timer: 1500
   })
+
+
+  updateBadge(playertreasure.treasure.gold,
+    playertreasure.treasure.bread,
+    playertreasure.treasure.chicken,
+    playertreasure.treasure.meat,
+    playertreasure.treasure.peasant,
+    playertreasure.treasure.warrior)
+
+
 })
 
 
 $('.sell').click(function() {
+  var status = 'fail'
+  var inpVal = parseInt($('.sellbuy').val())
   if (htmltext == 'Peasant') {
-    playertreasure.treasure.peasant = -parseInt($('.sellbuy').val()) + playertreasure.treasure.peasant;
-    console.log(playertreasure.treasure.peasant);
+    if (inpVal < playertreasure.treasure.peasant) {
+      playertreasure.treasure.peasant = -inpVal + playertreasure.treasure.peasant;
+      status = 'success'
+    }
+  } else if (htmltext == 'Warrior') {
+    if (inpVal < playertreasure.treasure.warrior) {
+      playertreasure.treasure.warrior = -inpVal + playertreasure.treasure.warrior;
+      status = 'success'
+    }
+  } else if (htmltext == 'Wheat') {
+    if (inpVal < playertreasure.treasure.bread) {
+      playertreasure.treasure.bread = -inpVal + playertreasure.treasure.bread;
+      status = 'success'
+    }
+  } else if (htmltext == 'Pork') {
+    if (inpVal < playertreasure.treasure.meat) {
+      playertreasure.treasure.meat = -inpVal + playertreasure.treasure.meat;
+      status = 'success'
+    }
+  } else if (htmltext == 'Chicken') {
+    if (inpVal < playertreasure.treasure.chicken) {
+      playertreasure.treasure.chicken = -inpVal + playertreasure.treasure.chicken;
+      status = 'success'
+    }
   }
-  if (htmltext == 'Warrior') {
-    playertreasure.treasure.warrior = -parseInt($('.sellbuy').val()) + playertreasure.treasure.warrior;
+  if (status == 'success') {
+    var goughtgold = parseInt($("#persale").text()) * inpVal;
+    playertreasure.treasure.gold += goughtgold
+    swal({
+      position: 'center',
+      type: 'success',
+      title: 'You have successfully sold your product',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
+    updateBadge(playertreasure.treasure.gold,
+      playertreasure.treasure.bread,
+      playertreasure.treasure.chicken,
+      playertreasure.treasure.meat,
+      playertreasure.treasure.peasant,
+      playertreasure.treasure.warrior)
+
+
+  } else {
+    swal(
+      'Error',
+      'You dont have enough quantity of selecting product or You cannot sell your last product',
+      'warning'
+    )
   }
-  if (htmltext == 'Wheat') {
-    playertreasure.treasure.bread = -parseInt($('.sellbuy').val()) + playertreasure.treasure.bread;
-
-  }
-  if (htmltext == 'Pork') {
-    playertreasure.treasure.meat = -parseInt($('.sellbuy').val()) + playertreasure.treasure.meat;
-
-  }
-  if (htmltext == 'Chicken') {
-    playertreasure.treasure.chicken = -parseInt($('.sellbuy').val()) + playertreasure.treasure.chicken;
-
-  }
-  var goughtgold = parseInt($("#persale").text()) * parseInt($('.sellbuy').val());
-  playertreasure.treasure.gold = playertreasure.treasure.gold + goughtgold
-
-  swal({
-    position: 'center',
-    type: 'success',
-    title: 'You have successfully sold your product',
-    showConfirmButton: false,
-    timer: 1500
-  })
 })
 
 
@@ -371,7 +389,35 @@ $('.sell').click(function() {
 
 
 //#################
+function updateBadge(gold, bread, chicken, meat, peasant, warrior) {
+  $("#goldspan").text(gold);
+  $("#wheatspan").text(bread);
+  $("#chickenspan").text(chicken);
+  $("#porkspan").text(meat);
+  $("#peasantspan").text(peasant);
+  $("#warriorspan").text(warrior);
 
+
+    if (bread <= 0 ||
+        chicken <= 0 ||
+        meat <= 0 ||
+        peasant <= 0 ||
+        warrior <= 0) {
+
+          swal({
+            position: 'center',
+            type: 'warning',
+            title: 'YOU LOSE',
+            showConfirmButton: true,
+            timer: 3500
+          })
+
+          return
+    }
+
+
+
+}
 
 function counting(index) {
   var myBlocks = new Block().blocks
@@ -388,7 +434,22 @@ function counting(index) {
   playertreasure.costcoefficient.peasant = myBlocks[index].trade_affect[3]
   playertreasure.costcoefficient.warrior = myBlocks[index].trade_affect[4]
 
+  if (playertreasure.treasure.bread <= 0 ||
+      playertreasure.treasure.chicken <= 0 ||
+      playertreasure.treasure.meat <= 0 ||
+      playertreasure.treasure.peasant <= 0 ||
+      playertreasure.treasure.warrior <= 0) {
 
+        swal({
+          position: 'center',
+          type: 'warning',
+          title: 'YOU LOSE',
+          showConfirmButton: true,
+          timer: 3500
+        })
+
+        return
+  }
 
   playertreasure.treasure.chicken = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.chicken + playertreasure.treasure.peasant)) * playertreasure.treasure.chicken * myBlocks[index].quantity_affect[1] * playertreasure.coefficient.chicken - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
   playertreasure.treasure.meat = Math.round((0.8 + playertreasure.treasure.peasant / (playertreasure.treasure.meat + playertreasure.treasure.peasant)) * playertreasure.treasure.meat * myBlocks[index].quantity_affect[2] * playertreasure.coefficient.pork - 0.1 * (playertreasure.coefficient.peasant * playertreasure.treasure.peasant + playertreasure.coefficient.warrior * playertreasure.treasure.warrior));
@@ -426,30 +487,25 @@ function counting(index) {
     peasant = peasant - ((meat + chicken + bread - peasant - warrior) / 2);
   }
 
-  $("#goldspan").text(gold);
-  $("#wheatspan").text(bread);
-  $("#chickenspan").text(chicken);
-  $("#porkspan").text(meat);
-  $("#peasantspan").text(peasant);
-  $("#warriorspan").text(warrior);
+  updateBadge(gold, bread, chicken, meat, peasant, warrior)
   $(".centralalert p").text(upperCaseFirst(myBlocks[index].description));
-  $(".centralalert p").click(function(){
+  $(".centralalert p").click(function() {
     $(this).html('')
   })
-    swal({
-      title: upperCaseFirst(myBlocks[index].name),
-      text: upperCaseFirst(myBlocks[index].description),
-      imageUrl: myBlocks[index].image,
-      imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: 'Custom image',
-      animation: false
-    })
+  swal({
+    title: upperCaseFirst(myBlocks[index].name),
+    text: upperCaseFirst(myBlocks[index].description),
+    imageUrl: myBlocks[index].image,
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: 'Custom image',
+    animation: false
+  })
 
 }
 
-function upperCaseFirst(s){
-  return s.substring(0,1).toUpperCase() + s.substring(1)
+function upperCaseFirst(s) {
+  return s.substring(0, 1).toUpperCase() + s.substring(1)
 }
 
 
