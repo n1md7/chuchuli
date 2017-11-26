@@ -327,7 +327,9 @@ button[name=button]{
   font-size: 5vh;
   text-align: center;
 }
-
+.righty{
+  float: right;
+}
 .war {
   height: 10vh;
   background-color: brown;
