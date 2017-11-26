@@ -50,7 +50,7 @@ function Block() {
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index: 1,
       color: 'rgba(255,120,0,0.7)',
-      description: 'Unusual things happen to your county, you suspect there is a witch in a village'
+      description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
     {
       name: 'Burn the witch',
@@ -59,7 +59,7 @@ function Block() {
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index:  10,
       color: 'rgba(255,120,0,0.7)',
-      description: 'Unusual things happen to your county, you suspect there is a witch in a village'
+      description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
     {
       name: 'risky business',
