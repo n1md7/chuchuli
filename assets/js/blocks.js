@@ -19,7 +19,7 @@ function Block() {
       description: 'Neighbour is plotting against you.'
     }, {
       name: 'Bad Neighbour',
-      quantity_affect:[1,1,1,0.8,0.9,1],
+      quantity_affect:[1,1,1,0.8,0.9,0.8],
       change_affect:[1,0.9,0.8,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 14,
