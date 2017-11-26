@@ -54,7 +54,7 @@ function Block() {
       change_affect:[1,1.1,1.1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index: 1,
-      image: false,
+      image: './back/witch.jpg',
       color: 'rgba(255,120,0,0.7)',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
@@ -64,12 +64,12 @@ function Block() {
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1],
       index:  10,
-      image: false,
+      image: './back/witch.jpg',
       color: 'rgba(255,120,0,0.7)',
       description: 'Unusual things happen to your county, you suspect there is a witch in a village (-10 gold)'
     },
     {
-      name: 'risky business',
+      name: 'Risky business',
       quantity_affect:[1,1,1,1,1,1.6],
       change_affect:[1,1,1,1,1,1],
       trade_affect:[1.3,1.3,1.2,1.3,1.2],
@@ -118,7 +118,7 @@ function Block() {
       description: 'You can hire villagers cheaper!!!'
     },
     {
-      name: 'dying stock',
+      name: 'Dying stock',
       quantity_affect:[1,0.8,0.8,1,1,1],
       change_affect:[1,1,1,1,1,1],
       trade_affect:[0.9,0.9,0.9,1.3,1.2],
