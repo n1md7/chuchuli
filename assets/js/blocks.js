@@ -74,7 +74,7 @@ function Block() {
       change_affect: [1, 1, 1, 1, 1, 1],
       trade_affect: [1.3, 1.3, 1.2, 1.3, 1.2],
       index: 3,
-      image: false,
+      image: './back/risky.jpg',
       color: 'rgba(234,93,9,0.8)',
       description: 'you can make a good investment in a caravan in china. However, the risks are not as low as you would like them to be'
     },
