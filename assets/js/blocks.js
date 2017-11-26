@@ -74,7 +74,7 @@ function Block() {
       name: 'Gone to Rome',
       quantity_affect:[1,1,1,1,1,1],
       change_affect:[1,1.5,1,1,1,0.9],
-      trade_affect:[1,1,1,1,1],
+      trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 18,
       color: 'rgba(100,100,134,0.4)',
       description: 'faith is important in ones life. you have gone to seek the God in Rome'
@@ -145,7 +145,7 @@ function Block() {
       name: 'great harvest',
       quantity_affect:[1,1,1,1,1,1],
       change_affect:[1.4,1,1,1,1,1],
-      trade_affect:[0.9,1,1,1.3,1.2],
+      trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 19,
       color: 'rgba(20,220,34,0.81)',
       description: 'such a great harvest has not been seen in decades.'
@@ -164,7 +164,7 @@ function Block() {
       name: 'group of mercenaries',
       quantity_affect:[1,1,1,0.8,0.9,1],
       change_affect:[1,1,1,1,1,1],
-      trade_affect:[1,1,1,1,0.6],
+      trade_affect:[0.9,0.9,0.9,1.3,1.2],
       index: 13,
       color: 'rgba(120,97,68,0.73)',
       description: 'group of cheap good mercenaries approach town.'
